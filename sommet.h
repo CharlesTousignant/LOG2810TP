@@ -9,7 +9,7 @@
 #include <iostream>
 //using namespace std;
 
-std::ostream& operator<< (std::ostream& os, const Sommet& sommet);
+std::ostream& operator<<(std::ostream& os, const Sommet& sommet);
 
 
 class Sommet {
@@ -38,7 +38,7 @@ private:
 	std::vector<std::pair<std::shared_ptr<Sommet>, int>> arretes_;
 	char couleur_;
 	std::string nom_;
-
+};
 
 
 

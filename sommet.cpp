@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ostream& operator<< (ostream& os, const Sommet& sommet){
+ostream& operator<<(ostream& os, const Sommet& sommet){
     os << sommet.getNom();
 }
 

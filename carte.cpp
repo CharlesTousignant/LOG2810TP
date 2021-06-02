@@ -7,10 +7,20 @@
 
 using namespace std;
 
-// créer le graphe à partir du fichier de données
+
+Carte::Carte(const Carte& carte)
+{
+	if (this != &carte) {
+		for (auto sommet : carte.sommets_) {
+			sommets_.insert(make_pair(sommet.second->getNom(), make_shared<Sommet>(sommet.second->getNom())));
+		}
+	}
+}
+
+// crï¿½er le graphe ï¿½ partir du fichier de donnï¿½es
 void Carte::creerGraphe(const std::string& nomFichier){
 	std::ifstream fichier;
-	fichier.open("data_partie1/" + nomFichier);
+	fichier.open(".\\data_partie2\\" + nomFichier);
 	string line;
 
     if(fichier){
@@ -29,16 +39,17 @@ void Carte::creerGraphe(const std::string& nomFichier){
 		getline(fichier, line);
 		iss.clear();
 		iss << line;
-		while (!iss.eof()) {
+		while (iss.peek()!=EOF) {
 			getline(iss, nomSommet1, ',');
 			getline(iss, nomSommet2, ',');
 			iss >> distance;
 			iss.ignore();
-
+			
 			shared_ptr<Sommet> sommet1 = sommets_.find(nomSommet1)->second;
 			shared_ptr<Sommet> sommet2 = sommets_.find(nomSommet2)->second;
 			sommet1->addNeighbor(sommet2, distance);
 			sommet2->addNeighbor(sommet1, distance);
+			
 		}
 	}
 	else {
@@ -69,32 +80,34 @@ void Carte::colorierGraphe() {
 	}
 }
 
-void addSommet(Sommet& sommet){
+void Carte::addSommet(Sommet& sommet){
 	sommets_.insert({ sommet.getCouleur(), make_shared<Sommet>(&sommet) });
 }
 
 void Carte::removeColor(char colorToRemove) {
 	for(auto sommet : sommets_){
-		sommet.removeSommet(sommet);
+		if (sommet.second->getCouleur() == colorToRemove) { 
+			sommets_.erase(sommet.first); 
+		}
 	}
 }
 
-/* Extraire le sous-graphe resultant d’un
-graphe colore, auquel on veut retirer une certaine couleur pass´ee en param`etre. Si la couleur
-passee en parametre n’a pas ete utilisee, afficher une erreur. */
+/* Extraire le sous-graphe resultant dï¿½un
+graphe colore, auquel on veut retirer une certaine couleur passï¿½ee en param`etre. Si la couleur
+passee en parametre nï¿½a pas ete utilisee, afficher une erreur. */
 Carte Carte::extractionGraphe(char colorToExtract){
 	bool foundColor = false;
-	Carte* carteExtraite = new Carte();
+	Carte carteExtraite = Carte();
 
 	for(auto sommet : sommets_){
 		Sommet* sommetToAdd = sommet.second->removeNeighbor(colorToExtract);
 		// Si le sommet n'etait pas lui-meme de la mauvaise couleure, on le garde
 		if (sommetToAdd) {
-			carteExtraite.addSommet(sommetToAdd);
+			carteExtraite.addSommet(*sommetToAdd);
 		}
 	}
 
-	return carteExtraite;
+	return Carte(carteExtraite);
 }
 
 // retourner le plus court chemin
