@@ -9,6 +9,8 @@
 #include <iostream>
 //using namespace std;
 
+class Sommet;
+
 std::ostream& operator<<(std::ostream& os, const Sommet& sommet);
 
 
@@ -18,7 +20,7 @@ public:
 	Sommet(std::string nom);
 	~Sommet() = default;
 
-	bool addNeighbor(std::shared_ptr<Sommet> sommet, int distance );
+	bool addNeighbor(std::shared_ptr<Sommet>& sommet, int distance );
 
 	char getCouleur() const;
 	void setCouleur(char couleur);

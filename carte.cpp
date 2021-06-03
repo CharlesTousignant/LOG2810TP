@@ -4,14 +4,16 @@
 #include <sstream>
 #include <string>
 #include <algorithm>
+#include <vector>
 
-using namespace std;
+using namespace std; 
 
 
 Carte::Carte(const Carte& carte)
-{
+{	
+	
 	if (this != &carte) {
-		for (auto sommet : carte.sommets_) {
+		for (const auto &sommet : carte.sommets_) {
 			sommets_.insert(make_pair(sommet.second->getNom(), make_shared<Sommet>(sommet.second->getNom())));
 		}
 	}
@@ -49,7 +51,6 @@ void Carte::creerGraphe(const std::string& nomFichier){
 			shared_ptr<Sommet> sommet2 = sommets_.find(nomSommet2)->second;
 			sommet1->addNeighbor(sommet2, distance);
 			sommet2->addNeighbor(sommet1, distance);
-			
 		}
 	}
 	else {
@@ -59,38 +60,43 @@ void Carte::creerGraphe(const std::string& nomFichier){
 
 // afficher le graphe
 void Carte::lireGraphe() const {
-	for(auto sommet: sommets_){
+	for(const auto& sommet: sommets_){
 		sommet.second->afficher();
 	}
 }
 
 // affecter une couleur aux sommets
 void Carte::colorierGraphe() {
-	auto compare = [](std::shared_ptr<Sommet> a, std::shared_ptr<Sommet> b) {
+	auto compare = [](const std::shared_ptr<Sommet> &a,const std::shared_ptr<Sommet> &b) -> bool {
 		return a->getSize() > b->getSize();
 	};
-	
-	sort(sommets_.begin(), sommets_.end(), compare);
+
+	vector<shared_ptr<Sommet>> carteCopie;
+	for (auto& sommet: sommets_) {
+		carteCopie.push_back(sommet.second);
+	}
+
+	sort(carteCopie.begin(), carteCopie.end(), compare);
 	for (char couleur : {'r', 'b', 'v', 'j'}) {
-		for (pair<string, shared_ptr<Sommet>> sommet : sommets_) {
-			if (sommet.second->getCouleur() == 'n' && !sommet.second->adjacentACouleur(couleur)) {
-				sommet.second->setCouleur(couleur);
+		for (shared_ptr<Sommet> &sommet : carteCopie) {
+			if (sommet->getCouleur() == 'n' && !sommet->adjacentACouleur(couleur)) {
+				sommet->setCouleur(couleur);
 			}
 		}
 	}
 }
 
 void Carte::addSommet(Sommet& sommet){
-	sommets_.insert({ sommet.getCouleur(), make_shared<Sommet>(&sommet) });
+	sommets_.insert(pair<string, shared_ptr<Sommet>>(sommet.getNom(), make_shared<Sommet>(sommet.getNom())));
 }
 
-void Carte::removeColor(char colorToRemove) {
-	for(auto sommet : sommets_){
-		if (sommet.second->getCouleur() == colorToRemove) { 
-			sommets_.erase(sommet.first); 
-		}
-	}
-}
+//void Carte::removeColor(char colorToRemove) {
+//	for(auto sommet : sommets_){
+//		if (sommet.second->getCouleur() == colorToRemove) { 
+//			sommets_.erase(sommet.first); 
+//		}
+//	}
+//}
 
 /* Extraire le sous-graphe resultant d�un
 graphe colore, auquel on veut retirer une certaine couleur pass�ee en param`etre. Si la couleur
@@ -99,11 +105,11 @@ Carte Carte::extractionGraphe(char colorToExtract){
 	bool foundColor = false;
 	Carte carteExtraite = Carte();
 
-	for(auto sommet : sommets_){
+	for(auto &sommet : sommets_){
 		Sommet* sommetToAdd = sommet.second->removeNeighbor(colorToExtract);
 		// Si le sommet n'etait pas lui-meme de la mauvaise couleure, on le garde
 		if (sommetToAdd) {
-			carteExtraite.addSommet(*sommetToAdd);
+			carteExtraite.addSommet(make_shared<Sommet>(sommetToAdd));
 		}
 	}
 
@@ -111,4 +117,4 @@ Carte Carte::extractionGraphe(char colorToExtract){
 }
 
 // retourner le plus court chemin
-void Carte::plusCourtChemin();
+void Carte::plusCourtChemin() {};

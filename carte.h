@@ -21,8 +21,9 @@ public:
 	void plusCourtChemin();
 
 private:
-	void removeColor(char colorToRemove);
+	//void removeColor(char colorToRemove);
 	void addSommet(Sommet& sommet);
+
 	std::map<std::string, std::shared_ptr<Sommet>> sommets_;
 };
 
