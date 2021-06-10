@@ -36,10 +36,16 @@ int main() {
 
 	shared_ptr<Carte> carteTest = make_shared<Carte>();
 	carteTest->creerGraphe("grapheCanada.txt");
-	//carteTest->lireGraphe();
+
+    cout << "carte sans couleurs: '\n'";
+	carteTest->lireGraphe();
+
+    cout << " Avec couleur: \n";
 	
 	carteTest->colorierGraphe();
-	//carteTest->lireGraphe();
+	carteTest->lireGraphe();
+
+    cout << "Sans rouge: \n";
 
 	Carte carteSansRouge = carteTest->extractionGraphe('r');
 	carteSansRouge.lireGraphe();

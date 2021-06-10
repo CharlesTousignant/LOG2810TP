@@ -28,7 +28,7 @@ public:
 	std::string getNom() const;
 	void setNom(std::string nom);
 
-	Sommet* removeNeighbor(char color);
+	std::shared_ptr<Sommet> removeNeighbor(char color);
 
 	void afficher(std::ostream& os = std::cout) const;
 

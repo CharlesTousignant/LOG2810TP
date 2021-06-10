@@ -12,12 +12,15 @@ ostream& operator<<(ostream& os, const Sommet& sommet){
 void Sommet::afficher(ostream& os) const{
     os << "(" << *this << ", " << couleur_ << ", (";
 
-    // On itere jusqu'a 1 de la fin pour les virgules
-    for (int i = 0; i < (int) arretes_.size() - 1; i++) {
-        os << *(arretes_[i].first.get()) << ", ";
+    if (arretes_.size() != 0) {
+        // On itere jusqu'a 1 de la fin pour les virgules
+        for (int i = 0; i < (int)arretes_.size() - 1; i++) {
+            os << *(arretes_[i].first.get()) << ", ";
+        }
+        // On rajoute le dernier sommet
+        os << *(arretes_[arretes_.size() - 1].first.get()) << "))";
     }
-    // On rajoute le dernier sommet
-    os << *(arretes_[arretes_.size() - 1].first.get()) << "))" << '\n';
+    os << '\n';
 }
 
 Sommet::Sommet(string nom) : couleur_('n'), nom_(nom) {};
@@ -38,13 +41,10 @@ bool Sommet::addNeighbor(shared_ptr<Sommet>& sommet, int distance){
     return true;
 }
 
-Sommet* Sommet::removeNeighbor(char color){
+shared_ptr<Sommet> Sommet::removeNeighbor(char color){
     
-    if(couleur_ == color){
-        return nullptr;
-    }
 
-    Sommet* sommetVoisinsEnleves = new Sommet(nom_);
+    shared_ptr<Sommet> sommetVoisinsEnleves = make_shared<Sommet>(nom_);
     sommetVoisinsEnleves->setCouleur(couleur_);
 
     for(pair<shared_ptr<Sommet>, int> &arrete : arretes_){

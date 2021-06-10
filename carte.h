@@ -23,6 +23,7 @@ public:
 private:
 	//void removeColor(char colorToRemove);
 	void addSommet(Sommet& sommet);
+	void addSommet(std::shared_ptr<Sommet> sommet);
 
 	std::map<std::string, std::shared_ptr<Sommet>> sommets_;
 };

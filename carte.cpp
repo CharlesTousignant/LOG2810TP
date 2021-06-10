@@ -14,7 +14,7 @@ Carte::Carte(const Carte& carte)
 	
 	if (this != &carte) {
 		for (const auto &sommet : carte.sommets_) {
-			sommets_.insert(make_pair(sommet.second->getNom(), make_shared<Sommet>(sommet.second->getNom())));
+			sommets_.insert(pair<string, shared_ptr<Sommet>>(sommet.second->getNom(), sommet.second));
 		}
 	}
 }
@@ -90,6 +90,10 @@ void Carte::addSommet(Sommet& sommet){
 	sommets_.insert(pair<string, shared_ptr<Sommet>>(sommet.getNom(), make_shared<Sommet>(sommet.getNom())));
 }
 
+void Carte::addSommet(shared_ptr<Sommet> sommet) {
+	sommets_.insert(pair<string, shared_ptr<Sommet>>(sommet->getNom(), sommet));
+}
+
 //void Carte::removeColor(char colorToRemove) {
 //	for(auto sommet : sommets_){
 //		if (sommet.second->getCouleur() == colorToRemove) { 
@@ -106,10 +110,9 @@ Carte Carte::extractionGraphe(char colorToExtract){
 	Carte carteExtraite = Carte();
 
 	for(auto &sommet : sommets_){
-		Sommet* sommetToAdd = sommet.second->removeNeighbor(colorToExtract);
-		// Si le sommet n'etait pas lui-meme de la mauvaise couleure, on le garde
-		if (sommetToAdd) {
-			carteExtraite.addSommet(make_shared<Sommet>(sommetToAdd));
+		if (sommet.second->getCouleur() != colorToExtract) {
+			shared_ptr<Sommet> sommetToAdd = sommet.second->removeNeighbor(colorToExtract);
+			carteExtraite.addSommet(sommetToAdd);
 		}
 	}
 
