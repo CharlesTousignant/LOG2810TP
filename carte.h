@@ -1,3 +1,4 @@
+
 #ifndef CARTE
 #define CARTE
 
@@ -13,12 +14,12 @@ class Carte {
 public:
 	Carte() = default;
 	Carte(const Carte& carte);
-	void creerGraphe(const std::string& nomFichier);
+	bool creerGraphe(const std::string& nomFichier);
 	void lireGraphe() const;
 	void colorierGraphe();
-	
+
 	Carte extractionGraphe(char colorToExtract);
-	void plusCourtChemin();
+	void plusCourtChemin(std::string source, std::string destination);
 
 private:
 	//void removeColor(char colorToRemove);
