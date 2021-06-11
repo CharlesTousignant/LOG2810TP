@@ -114,8 +114,14 @@ Carte Carte::extractionGraphe(char colorToExtract) {
 			shared_ptr<Sommet> sommetToAdd = sommet.second->removeNeighbor(colorToExtract);
 			carteExtraite.addSommet(sommetToAdd);
 		}
+		else {
+			foundColor = true;
+		}
 	}
 
+	if (!foundColor) {
+		cout << "La couleur '" << colorToExtract << "' n'a pas ete trouvee. \n";
+	}
 	return Carte(carteExtraite);
 }
 

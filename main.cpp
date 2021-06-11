@@ -49,6 +49,7 @@ int main() {
 
     Carte carteSansRouge = carteTest->extractionGraphe('r');
     carteSansRouge.lireGraphe();
+    carteSansRouge = carteSansRouge.extractionGraphe('r');
 
     carteTest->plusCourtChemin("Y", "IPE");
     carteSansRouge.plusCourtChemin("Y", "S");
