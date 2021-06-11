@@ -9,7 +9,9 @@
 #include <iostream>
 //using namespace std;
 
-std::ostream& operator<< (std::ostream& os, const Sommet& sommet);
+class Sommet;
+
+std::ostream& operator<<(std::ostream& os, const Sommet& sommet);
 
 
 class Sommet {
@@ -18,7 +20,7 @@ public:
 	Sommet(std::string nom);
 	~Sommet() = default;
 
-	bool addNeighbor(std::shared_ptr<Sommet> sommet, int distance );
+	bool addNeighbor(std::shared_ptr<Sommet>& sommet, int distance);
 
 	char getCouleur() const;
 	void setCouleur(char couleur);
@@ -26,7 +28,7 @@ public:
 	std::string getNom() const;
 	void setNom(std::string nom);
 
-	Sommet* removeNeighbor(char color);
+	std::shared_ptr<Sommet> removeNeighbor(char color);
 
 	void afficher(std::ostream& os = std::cout) const;
 
@@ -34,11 +36,13 @@ public:
 
 	bool adjacentACouleur(char couleur);
 
+	std::vector<std::pair<std::shared_ptr<Sommet>, int>> getArretes() const;
+
 private:
 	std::vector<std::pair<std::shared_ptr<Sommet>, int>> arretes_;
 	char couleur_;
 	std::string nom_;
-
+};
 
 
 
