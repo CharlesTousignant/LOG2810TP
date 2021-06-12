@@ -129,6 +129,30 @@ Carte Carte::extractionGraphe(char colorToExtract) {
 
 // retourner le plus court chemin
 void Carte::plusCourtChemin(string source, string destination) {
+
+	bool sourceExiste = false;
+	bool destinationExiste = false;
+	
+	for (auto& sommet: sommets_) {
+		if (sommet.second->getNom() == source) {
+			sourceExiste = true;
+		}
+		if (sommet.second->getNom() == destination) {
+			destinationExiste = true;
+		}
+	}
+
+	if (!sourceExiste & !destinationExiste) {
+		cout << "Veuillez entrer une source et une destination valides.\n";
+		return;
+	} else if (!sourceExiste) {
+		cout << "Veuillez entrer une source valide.\n";
+		return;
+	} else if (!destinationExiste) {
+		cout << "Veuillez enter une destination valide.\n";
+		return;
+	}
+
 	map<string, shared_ptr<pair<int, vector<string>>>> longueurs;
 	for (auto& sommet : sommets_) {
 		longueurs.insert(make_pair(sommet.first, make_shared<pair<int, vector<string>>>(make_pair(INT_MAX, vector<string>()))));

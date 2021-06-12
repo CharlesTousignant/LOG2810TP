@@ -92,3 +92,7 @@ bool Sommet::adjacentACouleur(char couleur) {
 
     return false;
 }
+
+vector<pair<shared_ptr<Sommet>, int>> Sommet::getArretes() const {
+    return arretes_;
+}

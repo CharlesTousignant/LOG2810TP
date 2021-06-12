@@ -27,6 +27,15 @@
     <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="automate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="explorationDuMonde.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Etat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data_partie1\lexique1.txt" />
@@ -44,6 +53,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="carte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="automate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="explorationDuMonde.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Etat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

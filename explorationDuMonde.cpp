@@ -35,8 +35,7 @@ void ExplorationDuMonde::lancer()
 				determinerPlusCourtChemin();
 				break;
 			case '5':
-				cout << "Fin du jeu Exploration du monde\n\n";
-				exit(0);
+				cout << "Fin du jeu Exploration du monde\n";
 				break;
 			default:
 				cout << "Choix invalide\n";

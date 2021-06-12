@@ -2,27 +2,17 @@
 #ifndef AUTOMATE
 #define AUTOMATE
 
+#include "Etat.h"
+
 #include <string>
 #include <stdio.h>
 #include <vector>
 #include <string>
 #include <utility>
 #include <memory>
-#include <hash_map>
+#include <unordered_map>
 
-class Etat {
-public:
-	Etat(char name, bool isValidWord);
-	void addTransition(char charTransition, Etat etatArrive);
 
-	std::pair<bool, Etat> transition(char charTransition);
-	std::string getNom() const;
-	bool isTerminal() const;
-private:
-	std::hash_map <char, std::shared_ptr<Etat>> transitions_;
-	std::string nom_;
-	bool isTerminal;
-};
 
 class Automate {
 public:

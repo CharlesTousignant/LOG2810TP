@@ -35,6 +35,7 @@ public:
 	int getSize() const;
 
 	bool adjacentACouleur(char couleur);
+	std::vector<std::pair<std::shared_ptr<Sommet>, int>> getArretes() const;
 
 private:
 	std::vector<std::pair<std::shared_ptr<Sommet>, int>> arretes_;
