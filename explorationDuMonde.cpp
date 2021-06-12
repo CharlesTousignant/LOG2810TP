@@ -109,10 +109,17 @@ void ExplorationDuMonde::determinerPlusCourtChemin(){
 		cin >> paysOrigine_;
 		cout << "Entrer le pays de destination\n";
 		cin >> paysDestination_;
-		cout << "Entrer la couleur a retirer au besoin\n";
-		cin >> couleurAEviter_;
-
-		carte_->plusCourtChemin(paysOrigine_, paysDestination_);
+		string retirerCouleur;
+		cout << "Voulez-vous retirer une couleur? (oui/non)\n";
+		cin >> retirerCouleur;
+		if(retirerCouleur == "oui") {
+			cout << "Entrer la couleur a retirer\n";
+			cin >> couleurAEviter_;
+			carte_->extractionGraphe(couleurAEviter_).plusCourtChemin(paysOrigine_, paysDestination_);
+		}
+		else {
+			carte_->plusCourtChemin(paysOrigine_, paysDestination_);
+		}
 	}
 }
 
