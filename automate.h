@@ -27,8 +27,8 @@ private:
 	bool transition(char charTransition);
 	std::vector<std::unique_ptr<std::string>> lexique_;
 
-	std::shared_prt<Etat> currState_;
-	std::shared_prt<Etat> startState_;
+	std::shared_ptr<Etat> currState_;
+	std::shared_ptr<Etat> startState_;
 };
 
 

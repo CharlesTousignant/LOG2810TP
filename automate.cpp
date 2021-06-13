@@ -13,6 +13,7 @@ using namespace std;
 
 Automate::Automate(vector<unique_ptr<string>> lexique) {
 	lexique_ = lexique;
+	startState_ = make_shared<Etat>("", false);
 }
 
 
@@ -36,11 +37,15 @@ Automate::Automate(vector<unique_ptr<string>> lexique) {
 //}
 
 void Automate::ajouterMot(string mot) {
-	Etat currStateToModify = startState_;
-	for (char& c : mot) {
-		currStateToModify.addTransition(c, false);
-		
+	Etat currStateToModify = *startState_.get();
+	string::iterator it = mot.begin();
+
+	for (int i = 0; i < mot.length() - 1; i++, it++) {
+		currStateToModify = currStateToModify.addTransition(*it, false);
 	}
+
+	// On rajoute le dernier caractere qui est un etat terminal
+	currStateToModify.addTransition(*it, true);
 }
 
 void Automate::suggererMots()
@@ -49,8 +54,17 @@ void Automate::suggererMots()
 
 void Automate::corrigerMot(const string& mot)
 {
-	startState_ = make_shared<Etat>("", false);
-	for ()
+	//startState_ = make_shared<Etat>("", false);
+	currState_ = startState_;
+	for (int i = 0; i < mot.length() - 1; i++) {
+		currState_->addTransition(mot.at(i), false);
+		currState_->addTransition('0', currState_->getNom() + mot.at(i), false);
+		transition(mot.at(i));
+	}
+	currState_->addTransition('0', mot, true)
+	
+	currState_ = startState_;
+
 }
 
 bool Automate::transition(char charTransition) {
@@ -59,7 +73,7 @@ bool Automate::transition(char charTransition) {
 
 	// si transition etait valide
 	if (found != transitonsPossibles.end()) {
-		currState_ = *(found->second.get());
+		currState_ = found->second;
 		return true;
 	}
 

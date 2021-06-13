@@ -15,13 +15,13 @@ map <char, std::shared_ptr<Etat>>& Etat::getTransitions() {
 	return transitions_;
 }
 
-Etat Etat::addTransition(char charTransition, bool isTerminal) {
+Etat& Etat::addTransition(char charTransition, bool isTerminal) {
 
 	// If transition doesn't exist
 	if (transitions_.count(charTransition) == 0) {
 		shared_ptr<Etat> etatTransition = make_shared<Etat>(name_ + charTransition, isTerminal);
 		transitions_.insert(charTransition, etatTransition);
-		return etatTransition;
+		return *etatTransition.get();
 	}
 }
 
