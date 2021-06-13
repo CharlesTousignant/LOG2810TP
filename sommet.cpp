@@ -3,13 +3,13 @@
 
 using namespace std;
 
-ostream& operator<<(ostream& os, const Sommet& sommet) {
+ostream& operator<<(ostream& os, const Sommet& sommet){
     os << sommet.getNom();
 
-    return os;
+	return os;
 }
 
-void Sommet::afficher(ostream& os) const {
+void Sommet::afficher(ostream& os) const{
     os << "(" << *this << ", " << couleur_ << ", (";
 
     if (arretes_.size() != 0) {
@@ -27,11 +27,11 @@ Sommet::Sommet(string nom) : couleur_('n'), nom_(nom) {};
 
 
 //retourne false si le voisin a ajouter existe deja, true sinon
-bool Sommet::addNeighbor(shared_ptr<Sommet>& sommet, int distance) {
+bool Sommet::addNeighbor(shared_ptr<Sommet>& sommet, int distance){
 
     //    shared_ptr<Sommet> sommetAAjouter = make_shared<Sommet>(sommet);
 
-    for (pair<shared_ptr<Sommet>, int>& arrete : arretes_) {
+    for (pair<shared_ptr<Sommet>, int> &arrete : arretes_) {
         if (arrete.first == sommet) {
             return false;
         }
@@ -41,16 +41,16 @@ bool Sommet::addNeighbor(shared_ptr<Sommet>& sommet, int distance) {
     return true;
 }
 
-shared_ptr<Sommet> Sommet::removeNeighbor(char color) {
-
+shared_ptr<Sommet> Sommet::removeNeighbor(char color){
+    
 
     shared_ptr<Sommet> sommetVoisinsEnleves = make_shared<Sommet>(nom_);
     sommetVoisinsEnleves->setCouleur(couleur_);
 
-    for (pair<shared_ptr<Sommet>, int>& arrete : arretes_) {
+    for(pair<shared_ptr<Sommet>, int> &arrete : arretes_){
         shared_ptr<Sommet> sommet = arrete.first;
-        if (sommet.get()->getCouleur() != color) {
-            shared_ptr<Sommet> newSommet = make_shared<Sommet>(sommet->getNom());
+        if(sommet.get()->getCouleur() != color){
+			shared_ptr<Sommet> newSommet = make_shared<Sommet>(sommet->getNom());
             newSommet->setCouleur(sommet->getCouleur());
 
             sommetVoisinsEnleves->addNeighbor(newSommet, arrete.second);

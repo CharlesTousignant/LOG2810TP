@@ -14,7 +14,7 @@ class Carte {
 public:
 	Carte() = default;
 	Carte(const Carte& carte);
-	void creerGraphe(const std::string& nomFichier);
+	bool creerGraphe(const std::string& nomFichier);
 	void lireGraphe() const;
 	void colorierGraphe();
 

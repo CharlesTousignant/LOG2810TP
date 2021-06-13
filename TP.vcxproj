@@ -139,8 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="automate.cpp" />
     <ClCompile Include="carte.cpp" />
+    <ClCompile Include="Etat.cpp" />
+    <ClCompile Include="explorationDuMonde.cpp" />
+    <ClCompile Include="jeuInstructif.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Qt\main.cpp" />
+    <ClCompile Include="Qt\mainwindow.cpp" />
     <ClCompile Include="sommet.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
@@ -156,8 +162,18 @@
     <Text Include="data_partie2\grapheFrance.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="automate.h" />
     <ClInclude Include="carte.h" />
+    <ClInclude Include="Etat.h" />
+    <ClInclude Include="explorationDuMonde.h" />
+    <ClInclude Include="jeuInstructif.h" />
+    <ClInclude Include="Qt\mainwindow.h" />
     <ClInclude Include="sommet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Qt\mainwindow.ui" />
+    <None Include="Qt\TP_LOG2810.pro" />
+    <None Include="Qt\TP_LOG2810.pro.user" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

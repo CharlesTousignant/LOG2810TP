@@ -2,58 +2,45 @@
 #include <string>
 #include <stdio.h>
 
-#include <assert.h>
-#include <sstream>  
-
-#include "sommet.h"
-#include "carte.h"
-#include "test.cpp"
+#include "explorationDuMonde.h"
+#include "jeuInstructif.h"
 using namespace std;
 
 int main() {
-    shared_ptr<Sommet> canada = make_shared<Sommet>("Canada");
-    shared_ptr<Sommet> usa = make_shared<Sommet>("USA");
+	char optionChoisie = '0';
+	string choixEntre;
 
-    canada->addNeighbor(usa, 1);
-    usa->addNeighbor(canada, 1);
+	while (optionChoisie != 'c') {
+		cout << "\n===========================\n"
+			<< "a. Exploration du monde\n"
+			<< "b. Jeu instructif\n"
+			<< "c. Quitter" << endl
+			<< "Veuillez choisir une options: ";
 
-    stringstream attendu;
-    stringstream recu;
+		cin >> choixEntre;
+		if (choixEntre.length() == 1) { 
+			optionChoisie = choixEntre[0];
+		}else{
+			optionChoisie = '0';
+		}
+		
+		ExplorationDuMonde explorationDuMonde;
+		JeuInstructif jeuInstructif;
 
-    attendu << "(Canada, n, (USA))\n";
-    canada->afficher(recu);
-
-    assert(attendu.str() == recu.str());
-
-    attendu.clear();
-    recu.clear();
-    attendu << "(USA, n, (Canada))\n";
-    usa->afficher(recu);
-
-    assert(attendu.str() == recu.str());
-
-
-
-    shared_ptr<Carte> carteTest = make_shared<Carte>();
-    carteTest->creerGraphe("grapheCanada.txt");
-
-    cout << "carte sans couleurs: \n";
-    carteTest->lireGraphe();
-
-    cout << " Avec couleur: \n";
-
-    carteTest->colorierGraphe();
-    carteTest->lireGraphe();
-
-    cout << "Sans rouge: \n";
-
-    Carte carteSansRouge = carteTest->extractionGraphe('r');
-    carteSansRouge.lireGraphe();
-    carteSansRouge = carteSansRouge.extractionGraphe('r');
-
-    carteTest->plusCourtChemin("Y", "IPE");
-    carteSansRouge.plusCourtChemin("Y", "S");
-    carteSansRouge.plusCourtChemin("Y", "Q");
-
-    // runAllTests();
+		switch (optionChoisie) {
+			case 'a':		
+				explorationDuMonde.lancer();
+				break;
+			case 'b':
+				jeuInstructif.lancer();
+				break;
+			case 'c':
+				cout << "Fin du programme\n";
+				exit(0);
+				break;
+			default:
+				cout << "Choix invalide\n";
+				break;
+		}
+	}
 }

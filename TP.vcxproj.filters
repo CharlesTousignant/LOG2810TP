@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="QtFiles">
+      <UniqueIdentifier>{5c6f0299-de03-433c-8129-d85f2d7282b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,6 +28,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="automate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="explorationDuMonde.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Etat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qt\main.cpp">
+      <Filter>QtFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Qt\mainwindow.cpp">
+      <Filter>QtFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="jeuInstructif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -46,5 +67,31 @@
     <ClInclude Include="carte.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="automate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="explorationDuMonde.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Etat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qt\mainwindow.h">
+      <Filter>QtFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="jeuInstructif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Qt\mainwindow.ui">
+      <Filter>QtFiles</Filter>
+    </None>
+    <None Include="Qt\TP_LOG2810.pro">
+      <Filter>QtFiles</Filter>
+    </None>
+    <None Include="Qt\TP_LOG2810.pro.user">
+      <Filter>QtFiles</Filter>
+    </None>
   </ItemGroup>
 </Project>
