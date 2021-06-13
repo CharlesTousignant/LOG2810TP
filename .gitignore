@@ -5,7 +5,7 @@
 
 .idea/
 .vs/
-
+Debug/
 # User-specific files
 *.rsuser
 *.suo
