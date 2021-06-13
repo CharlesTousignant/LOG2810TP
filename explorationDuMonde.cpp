@@ -7,7 +7,7 @@
 using namespace std;
 
 
-ExplorationDuMonde::ExplorationDuMonde(): carteLue_(false), frontieresDeterminees_(false), nomFichier("n"), paysOrigine_("n"), paysDestination_("n"), couleurAEviter_('n')
+ExplorationDuMonde::ExplorationDuMonde(): carteLue_(false), frontieresDeterminees_(false)
 {
 	carte_ = make_shared<Carte>();
 };
@@ -51,7 +51,7 @@ char ExplorationDuMonde::choisirOptionMenu() {
 	cout << "3. Determiner les frontieres" << endl;
 	cout << "4. Determiner le plus court chemin" << endl;
 	cout << "5. Quitter" << endl;
-	cout << "Veuillez choisir une options :\n";
+	cout << "Veuillez choisir une options: ";
 
 	char optionChoisie = '0';
 	string choixEntre;
@@ -65,11 +65,12 @@ char ExplorationDuMonde::choisirOptionMenu() {
 
 
 void ExplorationDuMonde::lireCarte() {
+	string nomFichier;
 	if (carteLue_) {
 		reinitialiserJeu();
 	}
 	while (!carteLue_) {
-		cout << "Entrez le nom du fichier de la carte a lire (par exemple:\"grapheCanada.txt\"):\n";
+		cout << "Entrez le nom du fichier de la carte a lire (par exemple:\"grapheCanada.txt\"): ";
 		cin >> nomFichier;
 
 		carteLue_ = carte_->creerGraphe(nomFichier);
@@ -104,32 +105,38 @@ void ExplorationDuMonde::determinerPlusCourtChemin(){
 	if (!carteLue_) { cout << "Commencer par lire une carte (option 1)\n"; }
 	else if (!frontieresDeterminees_) { cout << "Commencer par determiner les frontieres (option 3)\n"; }
 	else {
-		cout << "Entrer le pays d'origine\n";
-		cin >> paysOrigine_;
-		cout << "Entrer le pays de destination\n";
-		cin >> paysDestination_;
-		string retirerCouleur;
-		cout << "Voulez-vous retirer une couleur? (oui/non)\n";
-		cin >> retirerCouleur;
-		if(retirerCouleur == "oui") {
-			cout << "Entrer la couleur a retirer\n";
-			cin >> couleurAEviter_;
-			carte_->extractionGraphe(couleurAEviter_).plusCourtChemin(paysOrigine_, paysDestination_);
+		string paysDestination;
+		string paysOrigine;
+		char couleurARetirer;
+		
+		cout << "Entrer le pays d'origine: ";
+		cin >> paysOrigine;
+		cout << "Entrer le pays de destination: ";
+		cin >> paysDestination;
+		string isRetirerCouleur;
+
+		do {
+			cout << "Voulez-vous retirer une couleur? (oui/non): ";
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin >> isRetirerCouleur;
+		} while (isRetirerCouleur != "non" && isRetirerCouleur != "oui");
+		
+		if(isRetirerCouleur == "oui") {
+			cout << "Entrer la couleur a retirer: ";
+			cin >> couleurARetirer;
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			carte_->extractionGraphe(couleurARetirer).plusCourtChemin(paysOrigine, paysDestination);
 		}
 		else {
-			carte_->plusCourtChemin(paysOrigine_, paysDestination_);
+			carte_->plusCourtChemin(paysOrigine, paysDestination);
 		}
 	}
 }
-
 
 
 void ExplorationDuMonde::reinitialiserJeu()
 {
 	carteLue_ = false;
 	frontieresDeterminees_ = false;
-	paysOrigine_ = "aucun";
-	paysDestination_ = "aucun";
-	couleurAEviter_ = 'n';
 	carte_ = make_shared<Carte>();
 }

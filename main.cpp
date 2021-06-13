@@ -2,13 +2,8 @@
 #include <string>
 #include <stdio.h>
 
-#include <assert.h>
-#include <sstream>  
-
-#include "sommet.h"
-#include "carte.h"
-#include "test.cpp"
 #include "explorationDuMonde.h"
+#include "jeuInstructif.h"
 using namespace std;
 
 int main() {
@@ -20,7 +15,7 @@ int main() {
 			<< "a. Exploration du monde\n"
 			<< "b. Jeu instructif\n"
 			<< "c. Quitter" << endl
-			<< "Veuillez choisir une options:\n";
+			<< "Veuillez choisir une options: ";
 
 		cin >> choixEntre;
 		if (choixEntre.length() == 1) { 
@@ -28,15 +23,16 @@ int main() {
 		}else{
 			optionChoisie = '0';
 		}
+		
 		ExplorationDuMonde explorationDuMonde;
+		JeuInstructif jeuInstructif;
 
 		switch (optionChoisie) {
 			case 'a':		
 				explorationDuMonde.lancer();
 				break;
 			case 'b':
-				//JeuInstructif jeuInstructif;
-				//jeuInstructif.lancer();
+				jeuInstructif.lancer();
 				break;
 			case 'c':
 				cout << "Fin du programme\n";

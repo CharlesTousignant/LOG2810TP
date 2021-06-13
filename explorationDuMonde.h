@@ -20,7 +20,7 @@ private:
 
 	bool carteLue_;
 	bool frontieresDeterminees_;
-	std::string nomFichier;
+	std::string nomFichier_;
 	std::string paysOrigine_;
 	std::string paysDestination_;
 	char couleurAEviter_;
