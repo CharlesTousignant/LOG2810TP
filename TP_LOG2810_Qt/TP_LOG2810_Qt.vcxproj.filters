@@ -29,15 +29,15 @@
     <QtUic Include="TP_LOG2810_Qt.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="TP_LOG2810_Qt.h">
+    <QtMoc Include="src\TP_LOG2810_Qt.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="TP_LOG2810_Qt.cpp">
+    <ClCompile Include="src\TP_LOG2810_Qt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\automate.cpp">

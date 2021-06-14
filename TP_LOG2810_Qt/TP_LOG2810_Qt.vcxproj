@@ -88,15 +88,15 @@
   <ItemGroup>
     <QtRcc Include="TP_LOG2810_Qt.qrc" />
     <QtUic Include="TP_LOG2810_Qt.ui" />
-    <QtMoc Include="TP_LOG2810_Qt.h" />
+    <QtMoc Include="src\TP_LOG2810_Qt.h" />
     <ClCompile Include="src\automate.cpp" />
     <ClCompile Include="src\carte.cpp" />
     <ClCompile Include="src\Etat.cpp" />
     <ClCompile Include="src\explorationDuMonde.cpp" />
     <ClCompile Include="src\jeuInstructif.cpp" />
     <ClCompile Include="src\sommet.cpp" />
-    <ClCompile Include="TP_LOG2810_Qt.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\TP_LOG2810_Qt.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\automate.h" />
