@@ -58,6 +58,18 @@
     <ClCompile Include="src\sommet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="x64\Debug\moc\moc_TP_LOG2810_Qt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="x64\Debug\rcc\qrc_TP_LOG2810_Qt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="x64\Release\moc\moc_TP_LOG2810_Qt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="x64\Release\rcc\qrc_TP_LOG2810_Qt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\automate.h">
@@ -76,6 +88,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sommet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="x64\Debug\uic\ui_TP_LOG2810_Qt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="x64\Release\uic\ui_TP_LOG2810_Qt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
