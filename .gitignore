@@ -4,3 +4,4 @@ TP_LOG2810_Qt/x64/Debug/*
 TP_LOG2810_Qt/x64/Release/*
 !uic/
 !moc/
+!rcc/
