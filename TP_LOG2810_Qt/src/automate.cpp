@@ -55,8 +55,13 @@ void Automate::ajouterMot(string mot) {
 
 vector<string> Automate::suggererMots(const string& motACompleter)
 {	
+	
 	currState_ = startState_;
 	vector<string> motsToReturn;
+
+	if (motACompleter.empty())
+		return motsToReturn;
+
 	for (char c : motACompleter) {
 		if (currState_->hasTransition(c)) {
 			currState_ = currState_->transition(c);

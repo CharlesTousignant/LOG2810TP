@@ -2,7 +2,6 @@
 #ifndef AUTOMATE
 #define AUTOMATE
 
-#include "Etat.h"
 
 #include <string>
 #include <stdio.h>
@@ -12,11 +11,12 @@
 #include <memory>
 #include <unordered_map>
 
-
+#include "Etat.h"
 
 class Automate {
 
 public:
+	Automate() = default;
 	Automate(std::vector<std::shared_ptr<std::string>>& lexique);
 	//bool creerLexique(const std::string& nomFichier);
 	std::vector<std::string> suggererMots(const std::string& motACompleter);
