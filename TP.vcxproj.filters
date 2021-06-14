@@ -39,12 +39,6 @@
     <ClCompile Include="Etat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Qt\main.cpp">
-      <Filter>QtFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="Qt\mainwindow.cpp">
-      <Filter>QtFiles</Filter>
-    </ClCompile>
     <ClCompile Include="jeuInstructif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,9 +69,6 @@
     </ClInclude>
     <ClInclude Include="Etat.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Qt\mainwindow.h">
-      <Filter>QtFiles</Filter>
     </ClInclude>
     <ClInclude Include="jeuInstructif.h">
       <Filter>Header Files</Filter>

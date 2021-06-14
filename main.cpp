@@ -1,34 +1,63 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <fstream>
+#include <sstream>
 
 #include "explorationDuMonde.h"
 #include "jeuInstructif.h"
+#include "automate.h"
 using namespace std;
 
-int main() {
-	char optionChoisie = '0';
-	string choixEntre;
+#define ACTIVER_MAIN false
+#define ACTIVER_TESTS true
 
-	while (optionChoisie != 'c') {
-		cout << "\n===========================\n"
-			<< "a. Exploration du monde\n"
-			<< "b. Jeu instructif\n"
-			<< "c. Quitter" << endl
-			<< "Veuillez choisir une options: ";
 
-		cin >> choixEntre;
-		if (choixEntre.length() == 1) { 
-			optionChoisie = choixEntre[0];
-		}else{
-			optionChoisie = '0';
+vector<shared_ptr<string>> creerLexique(const string& nomFichier)
+{
+	std::ifstream fichier;
+	fichier.open(".\\data_partie1\\" + nomFichier);
+	string mot;
+	vector<shared_ptr<string>> lexique = vector<shared_ptr<string>>();
+
+	if (fichier) {
+		while(!fichier.eof()) {
+			getline(fichier, mot);
+			lexique.push_back(make_shared<string>(mot));
 		}
-		
-		ExplorationDuMonde explorationDuMonde;
-		JeuInstructif jeuInstructif;
+	}
+	else {
+		cout << "Erreur d'ouverture." << endl;
+	}
+	return lexique;
+}
 
-		switch (optionChoisie) {
-			case 'a':		
+int main() {
+	#if ACTIVER_MAIN == true
+	{
+		char optionChoisie = '0';
+		string choixEntre;
+
+		while (optionChoisie != 'c') {
+			cout << "\n===========================\n"
+				<< "a. Exploration du monde\n"
+				<< "b. Jeu instructif\n"
+				<< "c. Quitter" << endl
+				<< "Veuillez choisir une options: ";
+
+			cin >> choixEntre;
+			if (choixEntre.length() == 1) {
+				optionChoisie = choixEntre[0];
+			}
+			else {
+				optionChoisie = '0';
+			}
+
+			ExplorationDuMonde explorationDuMonde;
+			JeuInstructif jeuInstructif;
+
+			switch (optionChoisie) {
+			case 'a':
 				explorationDuMonde.lancer();
 				break;
 			case 'b':
@@ -41,6 +70,23 @@ int main() {
 			default:
 				cout << "Choix invalide\n";
 				break;
+			}
 		}
 	}
+	#endif
+	#if ACTIVER_TESTS == true
+	{
+		vector<shared_ptr<string>> lexique = creerLexique("lexique6.txt");
+		unique_ptr<Automate> correcteur = make_unique<Automate>(lexique);
+		while (true) {
+			string motACorriger;
+			cin >> motACorriger;
+			vector<shared_ptr<string>> corrections = correcteur->corrigerMot(motACorriger);
+			for (shared_ptr<string> mot : corrections) {
+				cout << *mot << '\n';
+			}
+		}
+		
+	}
+	#endif
 }

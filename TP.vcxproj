@@ -145,8 +145,6 @@
     <ClCompile Include="explorationDuMonde.cpp" />
     <ClCompile Include="jeuInstructif.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Qt\main.cpp" />
-    <ClCompile Include="Qt\mainwindow.cpp" />
     <ClCompile Include="sommet.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
@@ -167,7 +165,6 @@
     <ClInclude Include="Etat.h" />
     <ClInclude Include="explorationDuMonde.h" />
     <ClInclude Include="jeuInstructif.h" />
-    <ClInclude Include="Qt\mainwindow.h" />
     <ClInclude Include="sommet.h" />
   </ItemGroup>
   <ItemGroup>

@@ -20,7 +20,7 @@ public:
 	Sommet(std::string nom);
 	~Sommet() = default;
 
-	bool addNeighbor(std::shared_ptr<Sommet> sommet, int distance );
+	bool addNeighbor(std::shared_ptr<Sommet>& sommet, int distance );
 
 	char getCouleur() const;
 	void setCouleur(char couleur);
@@ -37,7 +37,7 @@ public:
 	bool adjacentACouleur(char couleur);
 	std::vector<std::pair<std::shared_ptr<Sommet>, int>> getArretes() const;
 
-	std::vector<std::pair<std::shared_ptr<Sommet>, int>> getArretes() const;
+//	std::vector<std::pair<std::shared_ptr<Sommet>, int>> getArretes() const;
 
 private:
 	std::vector<std::pair<std::shared_ptr<Sommet>, int>> arretes_;

@@ -11,7 +11,7 @@
 using namespace std;
 
 
-Automate::Automate(vector<unique_ptr<string>> lexique) {
+Automate::Automate(vector<shared_ptr<string>>& lexique) {
 	lexique_ = lexique;
 	startState_ = make_shared<Etat>("", false);
 }
@@ -52,23 +52,65 @@ void Automate::suggererMots()
 {
 }
 
-void Automate::corrigerMot(const string& mot)
+vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 {
-	//startState_ = make_shared<Etat>("", false);
+	//creation de la machine a etat du mot
+	startState_ = make_shared<Etat>("", false);
 	currState_ = startState_;
-	for (int i = 0; i < mot.length() - 1; i++) {
+	int motLength = mot.length();
+	for (int i = 0; i < motLength - 1; i++) {
 		currState_->addTransition(mot.at(i), false);
 		currState_->addTransition('0', currState_->getNom() + mot.at(i), false);
 		transition(mot.at(i));
 	}
-	currState_->addTransition('0', mot, true)
+	currState_->addTransition('0', mot, true);
 	
 	currState_ = startState_;
+	for (int i = 0; i < motLength - 1; i++) {
+		shared_ptr<Etat> stateToLink = currState_->getTransitions().find(mot.at(i))->second
+			->getTransitions().find('0')->second;
+		currState_->getTransitions().find('0')->second->addTransition(mot.at(i + 1), stateToLink);
+		transition(mot.at(i));
+	}
+	
+	shared_ptr<Etat> finalState = make_shared<Etat>("", true);
+	currState_ = startState_;
+	transition('0');
+	for (int i = 1; i <= motLength - 1; i++) {
+		currState_->addTransition('0', finalState);
+		transition(mot.at(i));
+	}
 
+	vector<shared_ptr<string>> suggestions = vector<shared_ptr<string>>();
+	for (shared_ptr<string> correction : lexique_) {
+//		shared_ptr<string> correction = lexique_.at(i);
+		if (motLength == correction->length()) {
+			if (mot != *(correction.get())) {
+				currState_ = startState_;
+				bool correctionValide = true;
+				for (int i = 0; i < motLength; i++) {
+					if (mot.at(i) == correction->at(i)) {
+						transition(mot.at(i));
+					}
+					else {
+						transition('0');
+					}
+					
+				}
+				if (currState_->getNom() != "") {
+					suggestions.push_back(correction);
+				}
+			}
+			else {
+				return vector<shared_ptr<string>>();
+			}
+		}
+	}
+	return suggestions;
 }
 
 bool Automate::transition(char charTransition) {
-	map<char, shared_ptr<Etat>> transitonsPossibles = currState_.getTransitions();
+	map<char, shared_ptr<Etat>> transitonsPossibles = currState_->getTransitions();
 	map<char, shared_ptr<Etat>>::iterator found = transitonsPossibles.find(charTransition);
 
 	// si transition etait valide

@@ -13,7 +13,7 @@ class Etat;
 
 class Etat {
 public:
-	Etat(char name, bool isValidWord);
+	Etat(std::string name, bool isValidWord);
 	Etat& addTransition(char charTransition, bool isTerminal);
 	void addTransition(char charTransition, std::string nomTransition, bool isTerminal);
 	void addTransition(char charTransition, std::shared_ptr<Etat> etat);

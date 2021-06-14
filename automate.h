@@ -17,15 +17,15 @@
 class Automate {
 
 public:
-	Automate(std::vector<std::unique_ptr<std::string>> lexique);
+	Automate(std::vector<std::shared_ptr<std::string>>& lexique);
 	//bool creerLexique(const std::string& nomFichier);
 	void suggererMots();
-	void corrigerMot(const std::string& mot);
+	std::vector<std::shared_ptr<std::string>> corrigerMot(const std::string& mot);
 
 private:
 	void ajouterMot(std::string mot);
 	bool transition(char charTransition);
-	std::vector<std::unique_ptr<std::string>> lexique_;
+	std::vector<std::shared_ptr<std::string>> lexique_;
 
 	std::shared_ptr<Etat> currState_;
 	std::shared_ptr<Etat> startState_;

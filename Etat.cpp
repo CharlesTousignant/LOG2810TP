@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Etat::Etat(char name, bool isValidWord) {
+Etat::Etat(string name, bool isValidWord) {
 	name_ = name;
 	isTerminal_ = isValidWord;
 }
@@ -20,7 +20,7 @@ Etat& Etat::addTransition(char charTransition, bool isTerminal) {
 	// If transition doesn't exist
 	if (transitions_.count(charTransition) == 0) {
 		shared_ptr<Etat> etatTransition = make_shared<Etat>(name_ + charTransition, isTerminal);
-		transitions_.insert(charTransition, etatTransition);
+		transitions_.insert(make_pair(charTransition, etatTransition));
 		return *etatTransition.get();
 	}
 }
@@ -30,7 +30,7 @@ void Etat::addTransition(char charTransition, string nomTransition, bool isTermi
 	// If transition doesn't exist
 	if (transitions_.count(charTransition) == 0) {
 		shared_ptr<Etat> etatTransition = make_shared<Etat>(nomTransition, isTerminal);
-		transitions_.insert(charTransition, etatTransition);
+		transitions_.insert(make_pair(charTransition, etatTransition));
 	}
 }
 
@@ -38,6 +38,6 @@ void Etat::addTransition(char charTransition, shared_ptr<Etat> etat) {
 
 	// If transition doesn't exist
 	if (transitions_.count(charTransition) == 0) {
-		transitions_.insert(charTransition, etat);
+		transitions_.insert(make_pair(charTransition, etat));
 	}
 }
