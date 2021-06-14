@@ -77,16 +77,37 @@ int main() {
 	#if ACTIVER_TESTS == true
 	{
 		vector<shared_ptr<string>> lexique = creerLexique("lexique6.txt");
-		unique_ptr<Automate> correcteur = make_unique<Automate>(lexique);
+		unique_ptr<Automate> automate = make_unique<Automate>(lexique);
+		cout << "Le lexique a ete lu \n";
+
 		while (true) {
-			string motACorriger;
-			cin >> motACorriger;
-			vector<shared_ptr<string>> corrections = correcteur->corrigerMot(motACorriger);
+			string motACompleter;
+			cout << "Entrez un mot a completer \n";
+			cin >> motACompleter;
+			vector<string> suggestions = automate->suggererMots(motACompleter);
+			cout << "suggestions: \n";
+
+			for (string mot : suggestions) {
+				cout << mot << '\n';
+			}
+
+			cout << "\n===========================\n";
+
+			cout << "Entrez un mot a corriger \n";
+			string motacorriger;
+			cin >> motacorriger;
+			vector<shared_ptr<string>> corrections = automate->corrigerMot(motacorriger);
+			cout << "correction: \n";
 			for (shared_ptr<string> mot : corrections) {
 				cout << *mot << '\n';
 			}
 		}
-		
+
+
+		while (true) {
+
+		}
+
 	}
 	#endif
 }

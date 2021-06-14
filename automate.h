@@ -19,7 +19,9 @@ class Automate {
 public:
 	Automate(std::vector<std::shared_ptr<std::string>>& lexique);
 	//bool creerLexique(const std::string& nomFichier);
-	void suggererMots();
+	std::vector<std::string> suggererMots(const std::string& motACompleter);
+	void suggererMots(const std::shared_ptr<Etat>& etatDepart, std::vector<std::string>& motsARetourner);
+
 	std::vector<std::shared_ptr<std::string>> corrigerMot(const std::string& mot);
 
 private:

@@ -7,13 +7,18 @@
 #include <algorithm>
 #include <vector>
 #include <map>
+#include <queue>
 
 using namespace std;
 
 
-Automate::Automate(vector<shared_ptr<string>>& lexique) {
+Automate::Automate(vector<shared_ptr<string>>& lexique) :
+	startState_(make_shared<Etat>("", false)) {
 	lexique_ = lexique;
-	startState_ = make_shared<Etat>("", false);
+	for (shared_ptr<string> mot : lexique) {
+		ajouterMot(*mot.get());
+	}
+	
 }
 
 
@@ -37,26 +42,69 @@ Automate::Automate(vector<shared_ptr<string>>& lexique) {
 //}
 
 void Automate::ajouterMot(string mot) {
-	Etat currStateToModify = *startState_.get();
+	shared_ptr<Etat> currStateToModify = startState_;
 	string::iterator it = mot.begin();
 
 	for (int i = 0; i < mot.length() - 1; i++, it++) {
-		currStateToModify = currStateToModify.addTransition(*it, false);
+		currStateToModify = currStateToModify->addTransition(*it, false);
 	}
 
 	// On rajoute le dernier caractere qui est un etat terminal
-	currStateToModify.addTransition(*it, true);
+	currStateToModify->addTransition(*it, true);
 }
 
-void Automate::suggererMots()
-{
+vector<string> Automate::suggererMots(const string& motACompleter)
+{	
+	currState_ = startState_;
+	vector<string> motsToReturn;
+	for (char c : motACompleter) {
+		if (currState_->hasTransition(c)) {
+			currState_ = currState_->transition(c);
+		}
+		else {
+			// On retourne rien si le motACompleter n'est pas dans l'automate
+			return motsToReturn;
+		}
+	}
+
+
+	//queue<shared_ptr<Etat>> etatsAEssayer;
+	//for (int i = 0; i < 10; i++) {
+	//	// Trouver les lettres restantes
+	//	while (!currState_->isTerminal()) {
+	//		etatsAEssayer.push(currState_);
+	//		auto transitions = currState_->getTransitions();
+	//		currState_ = currState_->transition(transitions.begin()->first);
+	//	}
+	//	motsToReturn.push_back(currState_->getNom());
+	//	currState_ = etatsAEssayer.front();
+	//}
+
+	suggererMots(currState_, motsToReturn);
+	return 	motsToReturn;
+}
+
+void Automate::suggererMots(const shared_ptr<Etat>& etatDepart, vector<string>& motsToReturn) {
+	auto transitionsPossible = etatDepart->getTransitions();
+	shared_ptr<Etat> found;
+
+	for (auto charTransition : transitionsPossible) {
+
+		if (motsToReturn.size() < 10) {
+			found = etatDepart->transition(charTransition.first);
+			if (found->isTerminal()) {
+				motsToReturn.push_back(found->getNom());
+			}
+			suggererMots(etatDepart->transition(charTransition.first), motsToReturn);
+		}
+	}
 }
 
 vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 {
 	//creation de la machine a etat du mot
-	startState_ = make_shared<Etat>("", false);
-	currState_ = startState_;
+	shared_ptr<Etat> startStateCorrection = make_shared<Etat>("", false);
+	currState_ = startStateCorrection;
 	int motLength = mot.length();
 	for (int i = 0; i < motLength - 1; i++) {
 		currState_->addTransition(mot.at(i), false);
@@ -65,7 +113,7 @@ vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 	}
 	currState_->addTransition('0', mot, true);
 	
-	currState_ = startState_;
+	currState_ = startStateCorrection;
 	for (int i = 0; i < motLength - 1; i++) {
 		shared_ptr<Etat> stateToLink = currState_->getTransitions().find(mot.at(i))->second
 			->getTransitions().find('0')->second;
@@ -74,7 +122,7 @@ vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 	}
 	
 	shared_ptr<Etat> finalState = make_shared<Etat>("", true);
-	currState_ = startState_;
+	currState_ = startStateCorrection;
 	transition('0');
 	for (int i = 1; i <= motLength - 1; i++) {
 		currState_->addTransition('0', finalState);
@@ -86,7 +134,7 @@ vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 //		shared_ptr<string> correction = lexique_.at(i);
 		if (motLength == correction->length()) {
 			if (mot != *(correction.get())) {
-				currState_ = startState_;
+				currState_ = startStateCorrection;
 				bool correctionValide = true;
 				for (int i = 0; i < motLength; i++) {
 					if (mot.at(i) == correction->at(i)) {
