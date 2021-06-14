@@ -25,7 +25,7 @@ mono_crash.*
 [Rr]elease/
 [Rr]eleases/
 x64/*
-!TP_LOG2810_Qt\x64
+
 x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
@@ -391,3 +391,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+!TP_LOG2810_Qt\x64\*
