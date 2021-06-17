@@ -10,6 +10,7 @@
 #include <utility>
 #include <memory>
 #include <unordered_map>
+#include <set>
 
 #include "Etat.h"
 
@@ -22,13 +23,13 @@ public:
 	std::vector<std::string> suggererMots(const std::string& motACompleter);
 	void suggererMots(const std::shared_ptr<Etat>& etatDepart, std::vector<std::string>& motsARetourner);
 
-	std::vector<std::shared_ptr<std::string>> corrigerMot(const std::string& mot);
+	std::string corrigerMot(const std::string& mot);
 
 private:
 	void ajouterMot(std::string mot);
 	bool transition(char charTransition);
-	std::vector<std::shared_ptr<std::string>> lexique_;
-
+	//std::vector<std::shared_ptr<std::string>> lexique_;
+	std::set<std::string> lexique_;
 	std::shared_ptr<Etat> currState_;
 	std::shared_ptr<Etat> startState_;
 };

@@ -70,6 +70,9 @@
     <ClCompile Include="x64\Release\rcc\qrc_TP_LOG2810_Qt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\MyDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\automate.h">
@@ -96,6 +99,12 @@
     <ClInclude Include="x64\Release\uic\ui_TP_LOG2810_Qt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="x64\Debug\uic\ui_choix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="x64\Release\uic\ui_choix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data_partie1\lexique1.txt" />
@@ -104,5 +113,15 @@
     <Text Include="data_partie1\lexique4.txt" />
     <Text Include="data_partie1\lexique5.txt" />
     <Text Include="data_partie1\lexique6.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="choix.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="src\MyDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

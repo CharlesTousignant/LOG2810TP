@@ -86,6 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MyDialog.cpp" />
     <ClCompile Include="x64\Debug\moc\moc_TP_LOG2810_Qt.cpp" />
     <ClCompile Include="x64\Debug\rcc\qrc_TP_LOG2810_Qt.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -96,6 +97,7 @@
     <ClCompile Include="x64\Release\moc\moc_TP_LOG2810_Qt.cpp" />
     <ClCompile Include="x64\Release\rcc\qrc_TP_LOG2810_Qt.cpp" />
     <QtRcc Include="TP_LOG2810_Qt.qrc" />
+    <QtUic Include="choix.ui" />
     <QtUic Include="TP_LOG2810_Qt.ui" />
     <QtMoc Include="src\TP_LOG2810_Qt.h" />
     <ClCompile Include="src\automate.cpp" />
@@ -108,13 +110,16 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="src\MyDialog.h" />
     <ClInclude Include="src\automate.h" />
     <ClInclude Include="src\carte.h" />
     <ClInclude Include="src\Etat.h" />
     <ClInclude Include="src\explorationDuMonde.h" />
     <ClInclude Include="src\jeuInstructif.h" />
     <ClInclude Include="src\sommet.h" />
+    <ClInclude Include="x64\Debug\uic\ui_choix.h" />
     <ClInclude Include="x64\Debug\uic\ui_TP_LOG2810_Qt.h" />
+    <ClInclude Include="x64\Release\uic\ui_choix.h" />
     <ClInclude Include="x64\Release\uic\ui_TP_LOG2810_Qt.h" />
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,10 @@ using namespace std;
 
 Automate::Automate(vector<shared_ptr<string>>& lexique) :
 	startState_(make_shared<Etat>("", false)) {
-	lexique_ = lexique;
+	for (auto mot : lexique) {
+		lexique_.insert(*mot.get());
+	}
+
 	for (shared_ptr<string> mot : lexique) {
 		ajouterMot(*mot.get());
 	}
@@ -90,6 +93,8 @@ vector<string> Automate::suggererMots(const string& motACompleter)
 }
 
 void Automate::suggererMots(const shared_ptr<Etat>& etatDepart, vector<string>& motsToReturn) {
+
+	
 	auto transitionsPossible = etatDepart->getTransitions();
 	shared_ptr<Etat> found;
 
@@ -105,8 +110,13 @@ void Automate::suggererMots(const shared_ptr<Etat>& etatDepart, vector<string>& 
 	}
 }
 
-vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
-{
+string Automate::corrigerMot(const string& mot)
+{   
+	// Si le mot est bien ecrit, rien retourner
+	if (lexique_.count(mot) > 0) {
+		return "";
+	}
+
 	//creation de la machine a etat du mot
 	shared_ptr<Etat> startStateCorrection = make_shared<Etat>("", false);
 	currState_ = startStateCorrection;
@@ -135,14 +145,14 @@ vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 	}
 
 	vector<shared_ptr<string>> suggestions = vector<shared_ptr<string>>();
-	for (shared_ptr<string> correction : lexique_) {
+	for (string correction : lexique_) {
 //		shared_ptr<string> correction = lexique_.at(i);
-		if (motLength == correction->length()) {
-			if (mot != *(correction.get())) {
+		if (motLength == correction.length()) {
+			if (mot != correction) {
 				currState_ = startStateCorrection;
 				bool correctionValide = true;
 				for (int i = 0; i < motLength; i++) {
-					if (mot.at(i) == correction->at(i)) {
+					if (mot.at(i) == correction.at(i)) {
 						transition(mot.at(i));
 					}
 					else {
@@ -151,15 +161,16 @@ vector<shared_ptr<string>> Automate::corrigerMot(const string& mot)
 					
 				}
 				if (currState_->getNom() != "") {
-					suggestions.push_back(correction);
+					return correction;
 				}
 			}
 			else {
-				return vector<shared_ptr<string>>();
+				continue;
 			}
 		}
 	}
-	return suggestions;
+
+	return "";
 }
 
 bool Automate::transition(char charTransition) {
