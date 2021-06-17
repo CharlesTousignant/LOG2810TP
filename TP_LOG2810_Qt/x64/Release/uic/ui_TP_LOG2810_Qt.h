@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TP_LOG2810_Qt.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.0
+** Created by: Qt User Interface Compiler version 5.15.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -83,13 +83,15 @@ public:
 
         textEdit = new QTextEdit(centralWidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setMouseTracking(false);
+        textEdit->setTextInteractionFlags(Qt::NoTextInteraction);
 
         gridLayout->addWidget(textEdit, 2, 0, 1, 1);
 
         TP_LOG2810_QtClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(TP_LOG2810_QtClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1545, 21));
+        menuBar->setGeometry(QRect(0, 0, 1545, 26));
         TP_LOG2810_QtClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(TP_LOG2810_QtClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));

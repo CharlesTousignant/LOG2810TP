@@ -24,4 +24,5 @@ private:
     std::string currentWord;
     int currTextSize = 0;
 
+
 };

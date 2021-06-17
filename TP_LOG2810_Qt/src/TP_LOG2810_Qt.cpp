@@ -44,33 +44,51 @@ TP_LOG2810_Qt::TP_LOG2810_Qt(QWidget *parent)
 
 void TP_LOG2810_Qt::keyPressed() {
     string text = ui.textEdit->toPlainText().toStdString();
-    int newTextSize = text.length();
+    size_t newTextSize = text.length();
 
-    if (newTextSize == 0) {
-        currentWord = "";
-        currTextSize = 0;
-    }
-        
-    else {
-        char keyPressed = text.back();
+     string currentWord;
 
-        //char keyPressed = event->KeyPress;
+     int posLastSpace = text.find_last_of(' ');
 
-        // Si il y a moins de char dans le texte, retirer un char du mot courant
-        if (newTextSize < currTextSize) {
-            if (!currentWord.empty())
-                currentWord.erase(currentWord.length() - (currTextSize - newTextSize));
-        }
+     if (posLastSpace == -1) {
+         currentWord = text;
+     }
+     // If we just entered a space
+     else if (posLastSpace == newTextSize - 1) {
+         // check if we should give corrction
+     }
 
-        else if (keyPressed == ' ') {
-            currentWord = "";
-        }
+     else {
+         currentWord = text.substr(posLastSpace + 1);
+     }
 
-        else {
-            currentWord += keyPressed;
 
-        }
-    }
+
+    //if (newTextSize == 0) {
+    //    currentWord = "";
+    //    currTextSize = 0;
+    //}
+    //    
+    //else {
+    //    char keyPressed = text.back();
+
+    //    //char keyPressed = event->KeyPress;
+
+    //    // Si il y a moins de char dans le texte, retirer un char du mot courant
+    //    if (newTextSize < currTextSize) {
+    //        if (!currentWord.empty())
+    //            currentWord.erase(currentWord.length() - (currTextSize - newTextSize));
+    //    }
+
+    //    else if (keyPressed == ' ') {
+    //        currentWord = "";
+    //    }
+
+    //    else {
+    //        currentWord += keyPressed;
+
+    //    }
+    //}
 
     vector<string> suggestionsMots = automateLexique.suggererMots(currentWord);
     addSuggestions(suggestionsMots);
