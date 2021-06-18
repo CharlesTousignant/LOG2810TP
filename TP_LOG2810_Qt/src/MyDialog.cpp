@@ -10,6 +10,8 @@ MyDialog::MyDialog() {
     connect(uiDialog->buttonCorrection, &QPushButton::clicked, this, &MyDialog::buttonClicked);
     connect(uiDialog->buttonSuggestCorrect, &QPushButton::clicked, this, &MyDialog::buttonClicked);
     connect(uiDialog->buttonExit, &QPushButton::clicked, this, &MyDialog::buttonClicked);
+
+    connect(uiDialog->buttonCreerAutomate, &QPushButton::clicked, this, &MyDialog::buttonClicked);
 };
 
 void MyDialog::show() {
@@ -19,8 +21,12 @@ void MyDialog::show() {
 void MyDialog::buttonClicked() {
     QPushButton* buttonPressed = dynamic_cast<QPushButton*>(QObject::sender());
     string buttonPressedName = QObject::sender()->objectName().toStdString();
+    if (buttonPressedName == "buttonCreerAutomate") {
+        emit(choiceLexique(uiDialog->lineEdit->text().toStdString()));
+        return;
+    }
 
-    if (buttonPressedName == "buttonSuggestion")
+    else if (buttonPressedName == "buttonSuggestion")
         emit(choiceSelected(suggest));
     else if (buttonPressedName == "buttonCorrection")
         emit(choiceSelected(correct));

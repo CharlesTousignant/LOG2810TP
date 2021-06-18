@@ -3,11 +3,14 @@
 #define EXPLORATIONDUMONDE
 
 #include <string>
+#include <qwidget.h>
+#include "ui_Exploration du monde.h"
 #include "carte.h"
 
-class ExplorationDuMonde {
+class ExplorationDuMonde : public QWidget{
 public:
 	ExplorationDuMonde();
+	~ExplorationDuMonde() = default;
 	void lancer();
 
 private:
@@ -25,6 +28,8 @@ private:
 	std::string paysDestination_;
 	char couleurAEviter_;
 	std::shared_ptr<Carte> carte_;
+
+	std::unique_ptr<Ui_Form_Exploration> uiExploration_;
 };
 
 

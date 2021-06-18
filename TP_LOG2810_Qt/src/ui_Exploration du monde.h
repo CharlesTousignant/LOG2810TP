@@ -19,7 +19,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Form
+class Ui_Form_Exploration
 {
 public:
     QGridLayout *gridLayout;
@@ -108,7 +108,7 @@ public:
 };
 
 namespace Ui {
-    class Form: public Ui_Form {};
+    //class Form: public Ui_Form {};
 } // namespace Ui
 
 QT_END_NAMESPACE

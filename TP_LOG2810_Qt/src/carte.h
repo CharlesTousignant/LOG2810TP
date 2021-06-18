@@ -15,11 +15,11 @@ public:
 	Carte() = default;
 	Carte(const Carte& carte);
 	bool creerGraphe(const std::string& nomFichier);
-	void lireGraphe() const;
+	void lireGraphe(std::ostream& os) const;
 	void colorierGraphe();
 
 	Carte extractionGraphe(char colorToExtract);
-	void plusCourtChemin(std::string source, std::string destination);
+	void plusCourtChemin(std::string source, std::string destination, std::ostream& os);
 
 private:
 	//void removeColor(char colorToRemove);

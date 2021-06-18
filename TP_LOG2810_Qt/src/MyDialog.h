@@ -1,5 +1,5 @@
 #pragma once
-#include "ui_choix.h"
+#include "ui_choixModesJeux.h"
 #include <qbuttongroup.h>
 #include <memory>
 
@@ -19,6 +19,7 @@ public:
 	void show();
 
 signals:
+	void choiceLexique(std::string fileName);
 	void choiceSelected(possibleGameState selectedState);
 
 private:

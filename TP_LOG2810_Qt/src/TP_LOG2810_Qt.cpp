@@ -29,26 +29,31 @@ vector<shared_ptr<string>> creerLexique(const string& nomFichier)
 }
 
 
-TP_LOG2810_Qt::TP_LOG2810_Qt(std::string fichierLexique, QWidget* parent)
+TP_LOG2810_Qt::TP_LOG2810_Qt(QWidget* parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
 
-    vector<shared_ptr<string>> lexique = creerLexique(fichierLexique);
-    automateLexique = Automate(lexique);
+    creerAutomate("lexique1.txt");
     
     connect(ui.textEdit, &QTextEdit::textChanged, this, &TP_LOG2810_Qt::keyPressed);
     connect(ui.pushButton, &QPushButton::pressed, this, & TP_LOG2810_Qt::showChoices);
 
     // on creer et initialise le dialog pour choisir l'application
-    choixApp_ = new ChoixApplication();
-    dialog_ = new MyDialog();
+    choixApp_ = make_unique<ChoixApplication>();
+    dialog_ = make_unique<MyDialog>();
+    exploration_ = make_unique<ExplorationDuMonde>();
 
-    connect(choixApp_, &ChoixApplication::choiceSelected, this, &TP_LOG2810_Qt::startNewApp);
+    connect(choixApp_.get(), &ChoixApplication::choiceSelected, this, &TP_LOG2810_Qt::startNewApp);
     choixApp_->show();
-    // on creer et initialise le dialog pour changer d'etat dans le jeuInstructif
-    
-    connect(dialog_, &MyDialog::choiceSelected, this, &TP_LOG2810_Qt::setNewState);
+
+    connect(dialog_.get(), &MyDialog::choiceSelected, this, &TP_LOG2810_Qt::setNewState);
+    connect(dialog_.get(), &MyDialog::choiceLexique, this, &TP_LOG2810_Qt::creerAutomate);
+}
+
+void TP_LOG2810_Qt::creerAutomate(std::string nomFichier) {
+    vector<shared_ptr<string>> lexique = creerLexique(nomFichier);
+    automateLexique = Automate(lexique);
 }
 
 void TP_LOG2810_Qt::startNewApp(selectedApplication selectedApp) {
@@ -56,7 +61,7 @@ void TP_LOG2810_Qt::startNewApp(selectedApplication selectedApp) {
     {
     case explorationDuMonde:
         // start exploration du monde
-        this->close();
+        exploration_->show();
         break;
     case jeuInstructif:
         showChoices();

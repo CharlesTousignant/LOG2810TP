@@ -99,16 +99,7 @@
     <ClInclude Include="src\sommet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ui_choix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="x64\Release\uic\ui_choix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\SelectionMode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui_choixModesJeux.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ui_Exploration du monde.h">
@@ -123,6 +114,9 @@
     <ClInclude Include="src\ui_TP_LOG2810_Qt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="x64\Debug\uic\ui_choixModesJeux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data_partie2\lexique1.txt" />
@@ -131,6 +125,10 @@
     <Text Include="data_partie2\lexique4.txt" />
     <Text Include="data_partie2\lexique5.txt" />
     <Text Include="data_partie2\lexique6.txt" />
+    <Text Include="data_partie1\grapheAmSud.txt" />
+    <Text Include="data_partie1\grapheCanada.txt" />
+    <Text Include="data_partie1\grapheFrance.txt" />
+    <Text Include="data_partie1\grapheTest.txt" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="choixModesJeux.ui">

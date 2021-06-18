@@ -115,6 +115,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="x64\Debug\uic\ui_choixModesJeux.h" />
     <QtMoc Include="src\MyDialog.h" />
     <QtMoc Include="src\ChoixApplication.h" />
     <ClInclude Include="src\SelectionMode.h" />
@@ -124,15 +125,16 @@
     <ClInclude Include="src\explorationDuMonde.h" />
     <ClInclude Include="src\jeuInstructif.h" />
     <ClInclude Include="src\sommet.h" />
-    <ClInclude Include="src\ui_choix.h" />
-    <ClInclude Include="src\ui_choixModesJeux.h" />
     <ClInclude Include="src\ui_Exploration du monde.h" />
     <ClInclude Include="src\ui_extractionGraphe.h" />
     <ClInclude Include="src\ui_JeuxInstructif.h" />
     <ClInclude Include="src\ui_TP_LOG2810_Qt.h" />
-    <ClInclude Include="x64\Release\uic\ui_choix.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="data_partie1\grapheAmSud.txt" />
+    <Text Include="data_partie1\grapheCanada.txt" />
+    <Text Include="data_partie1\grapheFrance.txt" />
+    <Text Include="data_partie1\grapheTest.txt" />
     <Text Include="data_partie2\lexique1.txt" />
     <Text Include="data_partie2\lexique2.txt" />
     <Text Include="data_partie2\lexique3.txt" />

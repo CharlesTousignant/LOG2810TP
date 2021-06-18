@@ -61,9 +61,9 @@ bool Carte::creerGraphe(const std::string& nomFichier) {
 }
 
 // afficher le graphe
-void Carte::lireGraphe() const {
+void Carte::lireGraphe(ostream& os) const {
 	for (const auto& sommet : sommets_) {
-		sommet.second->afficher();
+		sommet.second->afficher(os);
 	}
 }
 
@@ -128,7 +128,7 @@ Carte Carte::extractionGraphe(char colorToExtract) {
 }
 
 // retourner le plus court chemin
-void Carte::plusCourtChemin(string source, string destination) {
+void Carte::plusCourtChemin(string source, string destination, ostream& os) {
 
 	bool sourceExiste = false;
 	bool destinationExiste = false;
@@ -143,13 +143,13 @@ void Carte::plusCourtChemin(string source, string destination) {
 	}
 
 	if (!sourceExiste & !destinationExiste) {
-		cout << "Veuillez entrer une source et une destination valides.\n";
+		os << "Veuillez entrer une source et une destination valides.\n";
 		return;
 	} else if (!sourceExiste) {
-		cout << "Veuillez entrer une source valide.\n";
+		os << "Veuillez entrer une source valide.\n";
 		return;
 	} else if (!destinationExiste) {
-		cout << "Veuillez enter une destination valide.\n";
+		os << "Veuillez enter une destination valide.\n";
 		return;
 	}
 
@@ -177,7 +177,7 @@ void Carte::plusCourtChemin(string source, string destination) {
 		}
 		//si la longueur reste INT_MAX, le graphe n'est pas connexe 
 		if (sommetMinimal.second->first == INT_MAX) {
-			cout << "Il n'existe pas de chemin entre votre origine est votre destination. \n" ;
+			os << "Il n'existe pas de chemin entre votre origine est votre destination. \n" ;
 			return;
 		}
 		ensemble.insert(sommetMinimal);
@@ -193,10 +193,10 @@ void Carte::plusCourtChemin(string source, string destination) {
 			}
 		}
 	}
-	cout << "Le chemin de cout minimal est: \n";
+	os << "Le chemin de cout minimal est: \n";
 	vector<string> chemin = ensemble.find(destination)->second->second;
 	for (int i = 0; i < chemin.size() - 1; i++) {
-		cout << chemin.at(i) << " -> ";
+		os << chemin.at(i) << " -> ";
 	}
-	cout << chemin.at(chemin.size() - 1) << ".\n";
+	os << chemin.at(chemin.size() - 1) << ".\n";
 };
