@@ -11,11 +11,15 @@ ExplorationDuMonde::ExplorationDuMonde(): carteLue_(false), frontieresDeterminee
 {	
 	carte_ = make_shared<Carte>();
 	uiExploration_ = make_unique<Ui_Form_Exploration>();
+	extractionDialog_ = make_unique<ExtractionGraphe>();
+
 	uiExploration_->setupUi(this);
 	connect(uiExploration_->LireCarte, &QPushButton::clicked, this, &ExplorationDuMonde::lireCarte);
 	connect(uiExploration_->AfficherCarte, &QPushButton::clicked, this, &ExplorationDuMonde::afficherCarte);
 	connect(uiExploration_->DeterminerFrontieres, &QPushButton::clicked, this, &ExplorationDuMonde::determinerFrontieres);
 	connect(uiExploration_->PlusCourtChemin, &QPushButton::clicked, this, &ExplorationDuMonde::determinerPlusCourtChemin);
+
+	//connect(extractionDialog_.get(), &ExtractionGraphe::choixCouleur, this, ExplorationDuMonde:)
 };
 
 
@@ -72,8 +76,8 @@ void ExplorationDuMonde::determinerPlusCourtChemin(){
 	}
 
 	else {
-		string paysDestination = "Y";
-		string paysOrigine = "CB";
+		string paysDestination = uiExploration_->paysDepart->toPlainText().toStdString();
+		string paysOrigine = uiExploration_->paysArrivee->toPlainText().toStdString();
 		char couleurARetirer;
 
 		string isRetirerCouleur;

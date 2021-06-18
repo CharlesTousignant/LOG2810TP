@@ -79,6 +79,9 @@
     <ClCompile Include="src\ChoixApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ExtractionGraphe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\automate.h">
@@ -102,19 +105,22 @@
     <ClInclude Include="src\SelectionMode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ui_Exploration du monde.h">
+    <ClInclude Include="x64\Debug\uic\ui_choixApplication.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ui_extractionGraphe.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui_JeuxInstructif.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui_TP_LOG2810_Qt.h">
+    <ClInclude Include="x64\Debug\uic\ui_choixModes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="x64\Debug\uic\ui_choixModesJeux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="x64\Debug\uic\ui_Exploration du monde.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="x64\Debug\uic\ui_extractionGraphe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="x64\Debug\uic\ui_JeuxInstructif.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,6 +155,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="src\ChoixApplication.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ExtractionGraphe.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

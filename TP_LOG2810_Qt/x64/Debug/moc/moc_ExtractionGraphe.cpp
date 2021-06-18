@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'ChoixApplication.h'
+** Meta object code from reading C++ file 'ExtractionGraphe.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.1)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../../src/ChoixApplication.h"
+#include "../../../src/ExtractionGraphe.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'ChoixApplication.h' doesn't include <QObject>."
+#error "The header file 'ExtractionGraphe.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.15.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,30 +21,28 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_ChoixApplication_t {
-    QByteArrayData data[5];
-    char stringdata0[65];
+struct qt_meta_stringdata_ExtractionGraphe_t {
+    QByteArrayData data[4];
+    char stringdata0[39];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_ChoixApplication_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_ExtractionGraphe_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_ChoixApplication_t qt_meta_stringdata_ChoixApplication = {
+static const qt_meta_stringdata_ExtractionGraphe_t qt_meta_stringdata_ExtractionGraphe = {
     {
-QT_MOC_LITERAL(0, 0, 16), // "ChoixApplication"
-QT_MOC_LITERAL(1, 17, 14), // "choiceSelected"
-QT_MOC_LITERAL(2, 32, 0), // ""
-QT_MOC_LITERAL(3, 33, 19), // "selectedApplication"
-QT_MOC_LITERAL(4, 53, 11) // "selectedApp"
+QT_MOC_LITERAL(0, 0, 16), // "ExtractionGraphe"
+QT_MOC_LITERAL(1, 17, 12), // "choixCouleur"
+QT_MOC_LITERAL(2, 30, 0), // ""
+QT_MOC_LITERAL(3, 31, 7) // "couleur"
 
     },
-    "ChoixApplication\0choiceSelected\0\0"
-    "selectedApplication\0selectedApp"
+    "ExtractionGraphe\0choixCouleur\0\0couleur"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_ChoixApplication[] = {
+static const uint qt_meta_data_ExtractionGraphe[] = {
 
  // content:
        8,       // revision
@@ -61,25 +59,25 @@ static const uint qt_meta_data_ChoixApplication[] = {
        1,    1,   19,    2, 0x06 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::Char,    3,
 
        0        // eod
 };
 
-void ChoixApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ExtractionGraphe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<ChoixApplication *>(_o);
+        auto *_t = static_cast<ExtractionGraphe *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->choiceSelected((*reinterpret_cast< selectedApplication(*)>(_a[1]))); break;
+        case 0: _t->choixCouleur((*reinterpret_cast< char(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (ChoixApplication::*)(selectedApplication );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ChoixApplication::choiceSelected)) {
+            using _t = void (ExtractionGraphe::*)(char );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ExtractionGraphe::choixCouleur)) {
                 *result = 0;
                 return;
             }
@@ -87,30 +85,30 @@ void ChoixApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject ChoixApplication::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject ExtractionGraphe::staticMetaObject = { {
     QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_ChoixApplication.data,
-    qt_meta_data_ChoixApplication,
+    qt_meta_stringdata_ExtractionGraphe.data,
+    qt_meta_data_ExtractionGraphe,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *ChoixApplication::metaObject() const
+const QMetaObject *ExtractionGraphe::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *ChoixApplication::qt_metacast(const char *_clname)
+void *ExtractionGraphe::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_ChoixApplication.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_ExtractionGraphe.stringdata0))
         return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int ChoixApplication::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ExtractionGraphe::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -128,7 +126,7 @@ int ChoixApplication::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void ChoixApplication::choiceSelected(selectedApplication _t1)
+void ExtractionGraphe::choixCouleur(char _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

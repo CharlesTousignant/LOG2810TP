@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'TP_LOG2810_Qt.ui'
+** Form generated from reading UI file 'JeuxInstructif.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.0
+** Created by: Qt User Interface Compiler version 5.15.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_TP_LOG2810_QT_H
-#define UI_TP_LOG2810_QT_H
+#ifndef UI_JEUXINSTRUCTIF_H
+#define UI_JEUXINSTRUCTIF_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -41,7 +41,7 @@ public:
     {
         if (TP_LOG2810_QtClass->objectName().isEmpty())
             TP_LOG2810_QtClass->setObjectName(QString::fromUtf8("TP_LOG2810_QtClass"));
-        TP_LOG2810_QtClass->resize(1545, 847);
+        TP_LOG2810_QtClass->resize(795, 562);
         centralWidget = new QWidget(TP_LOG2810_QtClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -83,13 +83,19 @@ public:
 
         textEdit = new QTextEdit(centralWidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        QFont font3;
+        font3.setPointSize(19);
+        textEdit->setFont(font3);
+        textEdit->setMouseTracking(false);
+        textEdit->setReadOnly(false);
+        textEdit->setTextInteractionFlags(Qt::TextEditorInteraction);
 
         gridLayout->addWidget(textEdit, 2, 0, 1, 1);
 
         TP_LOG2810_QtClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(TP_LOG2810_QtClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1545, 21));
+        menuBar->setGeometry(QRect(0, 0, 795, 26));
         TP_LOG2810_QtClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(TP_LOG2810_QtClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -107,7 +113,7 @@ public:
     {
         TP_LOG2810_QtClass->setWindowTitle(QCoreApplication::translate("TP_LOG2810_QtClass", "TP_LOG2810_Qt", nullptr));
         pushButton->setText(QCoreApplication::translate("TP_LOG2810_QtClass", "Retour", nullptr));
-        label->setText(QCoreApplication::translate("TP_LOG2810_QtClass", "Suggestion de mots", nullptr));
+        label->setText(QCoreApplication::translate("TP_LOG2810_QtClass", "Jeux instructif", nullptr));
     } // retranslateUi
 
 };
@@ -118,4 +124,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_TP_LOG2810_QT_H
+#endif // UI_JEUXINSTRUCTIF_H

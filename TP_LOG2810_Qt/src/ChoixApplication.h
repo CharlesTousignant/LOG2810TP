@@ -17,7 +17,7 @@ public:
     void show();
     void buttonClicked();
 
-    std::unique_ptr<Ui_choixAppliaction> uiDialog;
+    std::unique_ptr<Ui_choixApplication> uiDialog;
 
 signals:
     void choiceSelected(selectedApplication selectedApp);

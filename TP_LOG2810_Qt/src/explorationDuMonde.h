@@ -5,6 +5,7 @@
 #include <string>
 #include <qwidget.h>
 #include "ui_Exploration du monde.h"
+#include "ExtractionGraphe.h"
 #include "carte.h"
 
 class ExplorationDuMonde : public QWidget{
@@ -30,6 +31,7 @@ private:
 	std::shared_ptr<Carte> carte_;
 
 	std::unique_ptr<Ui_Form_Exploration> uiExploration_;
+	std::unique_ptr<ExtractionGraphe> extractionDialog_;
 };
 
 

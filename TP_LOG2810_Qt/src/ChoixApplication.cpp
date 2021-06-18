@@ -4,7 +4,7 @@
 using namespace std;
 
 ChoixApplication::ChoixApplication() {
-    uiDialog = make_unique<Ui_choixAppliaction>();
+    uiDialog = make_unique<Ui_choixApplication>();
     uiDialog->setupUi(this);
     connect(uiDialog->boutonExploration, &QPushButton::clicked, this, &ChoixApplication::buttonClicked);
     connect(uiDialog->boutonJeuInstructif, &QPushButton::clicked, this, &ChoixApplication::buttonClicked);

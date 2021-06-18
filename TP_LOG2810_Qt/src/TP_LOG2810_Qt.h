@@ -5,7 +5,7 @@
 #include "MyDialog.h"
 #include "ChoixApplication.h"
 #include "explorationDuMonde.h"
-#include "ui_TP_LOG2810_Qt.h"
+#include "ui_jeuxInstructif.h"
 
 #include <vector>
 
