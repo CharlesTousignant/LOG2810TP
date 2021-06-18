@@ -28,7 +28,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Veillez choisir un mode test</string>
+      <string>Veuillez choisir une application</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

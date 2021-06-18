@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>5.15.0_msvc2019_64</QtInstall>
+    <QtInstall>5.15.1_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -88,7 +88,6 @@
   <ItemGroup>
     <ClCompile Include="src\ExtractionGraphe.cpp" />
     <ClCompile Include="src\ChoixApplication.cpp" />
-    <ClCompile Include="src\SelectionMode.cpp" />
     <ClCompile Include="src\ChoixModesJeux.cpp" />
     <ClCompile Include="x64\Debug\moc\moc_ChoixApplication.cpp" />
     <ClCompile Include="x64\Debug\moc\moc_ExtractionGraphe.cpp" />
@@ -123,7 +122,6 @@
     <QtMoc Include="src\ExtractionGraphe.h" />
     <QtMoc Include="src\ChoixModesJeux.h" />
     <QtMoc Include="src\ChoixApplication.h" />
-    <ClInclude Include="src\SelectionMode.h" />
     <ClInclude Include="src\automate.h" />
     <ClInclude Include="src\carte.h" />
     <ClInclude Include="src\Etat.h" />
