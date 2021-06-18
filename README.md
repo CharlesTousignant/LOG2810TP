@@ -20,3 +20,5 @@ https://visualstudio.microsoft.com/downloads/
 	ex: 5.15.0_msvc2019_64
 
 7- En mode Debug, appuyer sur Local Windows Debugger pour commencer l'application.
+
+** Veuillez prendre note que tout répertoire x64 Debug ou Release ne contient que des fichiers .cpp et .h, qui sont généré à partir des fichiers ui. **
