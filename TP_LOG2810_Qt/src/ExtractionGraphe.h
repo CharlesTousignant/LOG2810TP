@@ -1,6 +1,6 @@
 #pragma once
-#include "qdialog.h"
-#include "ui_extractionGraphe.h"
+//#include "qdialog.h"
+#include "../x64/Debug/uic/ui_extractionGraphe.h"
 #include <memory>
 
 class ExtractionGraphe : public QDialog {
@@ -17,5 +17,5 @@ signals:
 	void choixCouleur(char couleur);
 
 private:
-	std::unique_ptr<Ui_Dialog_Extraction> uiExtraction_;
+	std::unique_ptr<Ui_DialogExtractionGraphe> uiExtraction_;
 };

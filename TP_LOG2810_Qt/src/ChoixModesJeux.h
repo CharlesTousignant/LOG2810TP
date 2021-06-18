@@ -1,7 +1,7 @@
 #pragma once
-#include "ui_choixModesJeux.h"
+#include "../x64/Debug/uic/ui_choixModesJeux.h"
 #include "qevent.h"
-#include <qbuttongroup.h>
+//#include <qbuttongroup.h>
 #include <memory>
 
 enum possibleGameState {
@@ -11,7 +11,7 @@ enum possibleGameState {
 	shouldExit
 };
 
-class ChoixModesJeux :public QDialog, public Ui_Dialog {
+class ChoixModesJeux :public QDialog {
 	Q_OBJECT
 public:
 	ChoixModesJeux();
@@ -28,5 +28,5 @@ signals:
 	void windowClosed(QCloseEvent* event);
 
 private:
-	std::unique_ptr<Ui_Dialog> uiDialog;
+	std::unique_ptr<Ui_DialogChoixModesJeux> uiDialog;
 };

@@ -3,7 +3,7 @@
 using namespace std;
 
 ExtractionGraphe::ExtractionGraphe() {
-    uiExtraction_ = make_unique<Ui_Dialog_Extraction>();
+    uiExtraction_ = make_unique<Ui_DialogExtractionGraphe>();
     uiExtraction_->setupUi(this);
 
     connect(uiExtraction_->r, &QPushButton::clicked, this, &ExtractionGraphe::buttonClicked);

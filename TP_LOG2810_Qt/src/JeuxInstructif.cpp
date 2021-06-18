@@ -2,7 +2,7 @@
 
 
 #include "JeuxInstructif.h"
-#include "ui_choixModesJeux.h"
+#include "../x64/Debug/uic/ui_choixModesJeux.h"
 #include <vector>
 #include <fstream>
 #include <sstream>

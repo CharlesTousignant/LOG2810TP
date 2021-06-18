@@ -1,10 +1,11 @@
+//#include "ui_choixModesJeux.h"
 #include "ChoixModesJeux.h"
 #include <iostream>
 
 using namespace std;
 
 ChoixModesJeux::ChoixModesJeux() {
-    uiDialog = make_unique<Ui_Dialog>();
+    uiDialog = make_unique<Ui_DialogChoixModesJeux>();
     uiDialog->setupUi(this);
     connect(uiDialog->buttonSuggestion, &QPushButton::clicked, this, &ChoixModesJeux::buttonClicked);
     connect(uiDialog->buttonCorrection, &QPushButton::clicked, this, &ChoixModesJeux::buttonClicked);

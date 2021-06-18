@@ -24,7 +24,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_JeuxInstructif_Class
+class Ui_JeuxInstructif
 {
 public:
     QWidget *centralWidget;
@@ -37,12 +37,12 @@ public:
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
-    void setupUi(QMainWindow *TP_LOG2810_QtClass)
+    void setupUi(QMainWindow *JeuxInstructif)
     {
-        if (TP_LOG2810_QtClass->objectName().isEmpty())
-            TP_LOG2810_QtClass->setObjectName(QString::fromUtf8("TP_LOG2810_QtClass"));
-        TP_LOG2810_QtClass->resize(795, 562);
-        centralWidget = new QWidget(TP_LOG2810_QtClass);
+        if (JeuxInstructif->objectName().isEmpty())
+            JeuxInstructif->setObjectName(QString::fromUtf8("JeuxInstructif"));
+        JeuxInstructif->resize(795, 562);
+        centralWidget = new QWidget(JeuxInstructif);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
@@ -92,34 +92,34 @@ public:
 
         gridLayout->addWidget(textEdit, 2, 0, 1, 1);
 
-        TP_LOG2810_QtClass->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(TP_LOG2810_QtClass);
+        JeuxInstructif->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(JeuxInstructif);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 795, 26));
-        TP_LOG2810_QtClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(TP_LOG2810_QtClass);
+        menuBar->setGeometry(QRect(0, 0, 795, 21));
+        JeuxInstructif->setMenuBar(menuBar);
+        mainToolBar = new QToolBar(JeuxInstructif);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        TP_LOG2810_QtClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(TP_LOG2810_QtClass);
+        JeuxInstructif->addToolBar(Qt::TopToolBarArea, mainToolBar);
+        statusBar = new QStatusBar(JeuxInstructif);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        TP_LOG2810_QtClass->setStatusBar(statusBar);
+        JeuxInstructif->setStatusBar(statusBar);
 
-        retranslateUi(TP_LOG2810_QtClass);
+        retranslateUi(JeuxInstructif);
 
-        QMetaObject::connectSlotsByName(TP_LOG2810_QtClass);
+        QMetaObject::connectSlotsByName(JeuxInstructif);
     } // setupUi
 
-    void retranslateUi(QMainWindow *TP_LOG2810_QtClass)
+    void retranslateUi(QMainWindow *JeuxInstructif)
     {
-        TP_LOG2810_QtClass->setWindowTitle(QCoreApplication::translate("TP_LOG2810_QtClass", "TP_LOG2810_Qt", nullptr));
-        pushButton->setText(QCoreApplication::translate("TP_LOG2810_QtClass", "Retour", nullptr));
-        label->setText(QCoreApplication::translate("TP_LOG2810_QtClass", "Jeux instructif", nullptr));
+        JeuxInstructif->setWindowTitle(QCoreApplication::translate("JeuxInstructif", "TP_LOG2810_Qt", nullptr));
+        pushButton->setText(QCoreApplication::translate("JeuxInstructif", "Retour", nullptr));
+        label->setText(QCoreApplication::translate("JeuxInstructif", "Jeux instructif", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class JeuxInstructif_Class : public Ui_JeuxInstructif_Class {};
+    class JeuxInstructif: public Ui_JeuxInstructif {};
 } // namespace Ui
 
 QT_END_NAMESPACE

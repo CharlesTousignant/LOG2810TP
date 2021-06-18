@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'choixApplication.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.1
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -18,7 +18,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_choixApplication
+class Ui_DialogChoixApplication
 {
 public:
     QGridLayout *gridLayout;
@@ -26,14 +26,14 @@ public:
     QPushButton *boutonJeuInstructif;
     QPushButton *boutonExploration;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QDialog *DialogChoixApplication)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QString::fromUtf8("Dialog"));
-        Dialog->resize(582, 550);
-        gridLayout = new QGridLayout(Dialog);
+        if (DialogChoixApplication->objectName().isEmpty())
+            DialogChoixApplication->setObjectName(QString::fromUtf8("DialogChoixApplication"));
+        DialogChoixApplication->resize(582, 550);
+        gridLayout = new QGridLayout(DialogChoixApplication);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        label = new QLabel(Dialog);
+        label = new QLabel(DialogChoixApplication);
         label->setObjectName(QString::fromUtf8("label"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -47,7 +47,7 @@ public:
 
         gridLayout->addWidget(label, 1, 1, 1, 2);
 
-        boutonJeuInstructif = new QPushButton(Dialog);
+        boutonJeuInstructif = new QPushButton(DialogChoixApplication);
         boutonJeuInstructif->setObjectName(QString::fromUtf8("boutonJeuInstructif"));
         QFont font1;
         font1.setPointSize(11);
@@ -55,30 +55,30 @@ public:
 
         gridLayout->addWidget(boutonJeuInstructif, 2, 2, 1, 1);
 
-        boutonExploration = new QPushButton(Dialog);
+        boutonExploration = new QPushButton(DialogChoixApplication);
         boutonExploration->setObjectName(QString::fromUtf8("boutonExploration"));
         boutonExploration->setFont(font1);
 
         gridLayout->addWidget(boutonExploration, 2, 1, 1, 1);
 
 
-        retranslateUi(Dialog);
+        retranslateUi(DialogChoixApplication);
 
-        QMetaObject::connectSlotsByName(Dialog);
+        QMetaObject::connectSlotsByName(DialogChoixApplication);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QDialog *DialogChoixApplication)
     {
-        Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("Dialog", "Veuillez choisir une application", nullptr));
-        boutonJeuInstructif->setText(QCoreApplication::translate("Dialog", "Jeu instructif", nullptr));
-        boutonExploration->setText(QCoreApplication::translate("Dialog", "Exploration du monde", nullptr));
+        DialogChoixApplication->setWindowTitle(QCoreApplication::translate("DialogChoixApplication", "Dialog", nullptr));
+        label->setText(QCoreApplication::translate("DialogChoixApplication", "Veuillez choisir une application", nullptr));
+        boutonJeuInstructif->setText(QCoreApplication::translate("DialogChoixApplication", "Jeu instructif", nullptr));
+        boutonExploration->setText(QCoreApplication::translate("DialogChoixApplication", "Exploration du monde", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    //class Dialog: public Ui_Dialog {};
+    class DialogChoixApplication: public Ui_DialogChoixApplication {};
 } // namespace Ui
 
 QT_END_NAMESPACE

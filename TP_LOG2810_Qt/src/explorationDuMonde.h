@@ -3,8 +3,8 @@
 #define EXPLORATIONDUMONDE
 
 #include <string>
-#include <qwidget.h>
-#include "ui_Exploration du monde.h"
+//#include <qwidget.h>
+#include "../x64/Debug/uic/ui_Exploration du monde.h"
 #include "ExtractionGraphe.h"
 #include "carte.h"
 
@@ -35,7 +35,7 @@ private:
 	char couleurAEviter_;
 	std::shared_ptr<Carte> carte_;
 
-	std::unique_ptr<Ui_Form_Exploration> uiExploration_;
+	std::unique_ptr<Ui_ExplorationDuMonde> uiExploration_;
 	std::unique_ptr<ExtractionGraphe> extractionDialog_;
 
 signals:

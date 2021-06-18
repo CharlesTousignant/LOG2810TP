@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Exploration du monde.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.1
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -19,7 +19,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Form_Exploration
+class Ui_ExplorationDuMonde
 {
 public:
     QGridLayout *gridLayout;
@@ -33,29 +33,29 @@ public:
     QPushButton *LireCarte;
     QTextEdit *paysArrivee;
 
-    void setupUi(QWidget *Form)
+    void setupUi(QWidget *ExplorationDuMonde)
     {
-        if (Form->objectName().isEmpty())
-            Form->setObjectName(QString::fromUtf8("Form"));
-        Form->resize(700, 448);
-        gridLayout = new QGridLayout(Form);
+        if (ExplorationDuMonde->objectName().isEmpty())
+            ExplorationDuMonde->setObjectName(QString::fromUtf8("ExplorationDuMonde"));
+        ExplorationDuMonde->resize(700, 448);
+        gridLayout = new QGridLayout(ExplorationDuMonde);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        Quitter = new QPushButton(Form);
+        Quitter = new QPushButton(ExplorationDuMonde);
         Quitter->setObjectName(QString::fromUtf8("Quitter"));
 
         gridLayout->addWidget(Quitter, 3, 5, 1, 1);
 
-        AfficherCarte = new QPushButton(Form);
+        AfficherCarte = new QPushButton(ExplorationDuMonde);
         AfficherCarte->setObjectName(QString::fromUtf8("AfficherCarte"));
 
         gridLayout->addWidget(AfficherCarte, 3, 2, 1, 1);
 
-        PlusCourtChemin = new QPushButton(Form);
+        PlusCourtChemin = new QPushButton(ExplorationDuMonde);
         PlusCourtChemin->setObjectName(QString::fromUtf8("PlusCourtChemin"));
 
         gridLayout->addWidget(PlusCourtChemin, 3, 4, 1, 1);
 
-        textEdit = new QTextEdit(Form);
+        textEdit = new QTextEdit(ExplorationDuMonde);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
@@ -66,7 +66,7 @@ public:
 
         gridLayout->addWidget(textEdit, 1, 1, 1, 1);
 
-        textBrowser = new QTextBrowser(Form);
+        textBrowser = new QTextBrowser(ExplorationDuMonde);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Maximum);
         sizePolicy1.setHorizontalStretch(0);
@@ -80,7 +80,7 @@ public:
 
         gridLayout->addWidget(textBrowser, 4, 1, 1, 5);
 
-        paysDepart = new QTextEdit(Form);
+        paysDepart = new QTextEdit(ExplorationDuMonde);
         paysDepart->setObjectName(QString::fromUtf8("paysDepart"));
         sizePolicy.setHeightForWidth(paysDepart->sizePolicy().hasHeightForWidth());
         paysDepart->setSizePolicy(sizePolicy);
@@ -88,17 +88,17 @@ public:
 
         gridLayout->addWidget(paysDepart, 1, 4, 1, 1);
 
-        DeterminerFrontieres = new QPushButton(Form);
+        DeterminerFrontieres = new QPushButton(ExplorationDuMonde);
         DeterminerFrontieres->setObjectName(QString::fromUtf8("DeterminerFrontieres"));
 
         gridLayout->addWidget(DeterminerFrontieres, 3, 3, 1, 1);
 
-        LireCarte = new QPushButton(Form);
+        LireCarte = new QPushButton(ExplorationDuMonde);
         LireCarte->setObjectName(QString::fromUtf8("LireCarte"));
 
         gridLayout->addWidget(LireCarte, 3, 1, 1, 1);
 
-        paysArrivee = new QTextEdit(Form);
+        paysArrivee = new QTextEdit(ExplorationDuMonde);
         paysArrivee->setObjectName(QString::fromUtf8("paysArrivee"));
         sizePolicy.setHeightForWidth(paysArrivee->sizePolicy().hasHeightForWidth());
         paysArrivee->setSizePolicy(sizePolicy);
@@ -107,28 +107,28 @@ public:
         gridLayout->addWidget(paysArrivee, 2, 4, 1, 1);
 
 
-        retranslateUi(Form);
+        retranslateUi(ExplorationDuMonde);
 
-        QMetaObject::connectSlotsByName(Form);
+        QMetaObject::connectSlotsByName(ExplorationDuMonde);
     } // setupUi
 
-    void retranslateUi(QWidget *Form)
+    void retranslateUi(QWidget *ExplorationDuMonde)
     {
-        Form->setWindowTitle(QCoreApplication::translate("Form", "Form", nullptr));
-        Quitter->setText(QCoreApplication::translate("Form", "Quitter", nullptr));
-        AfficherCarte->setText(QCoreApplication::translate("Form", "Afficher un carte", nullptr));
-        PlusCourtChemin->setText(QCoreApplication::translate("Form", "Determiner le plus court chemin", nullptr));
-        textEdit->setPlaceholderText(QCoreApplication::translate("Form", "Entrez le nom du fichier contenant la carte", nullptr));
-        paysDepart->setPlaceholderText(QCoreApplication::translate("Form", "Entrez le pays de depart", nullptr));
-        DeterminerFrontieres->setText(QCoreApplication::translate("Form", "Determiner les frontieres", nullptr));
-        LireCarte->setText(QCoreApplication::translate("Form", "Lire une carte", nullptr));
-        paysArrivee->setPlaceholderText(QCoreApplication::translate("Form", "Entrez le pays d'arrivee", nullptr));
+        ExplorationDuMonde->setWindowTitle(QCoreApplication::translate("ExplorationDuMonde", "Form", nullptr));
+        Quitter->setText(QCoreApplication::translate("ExplorationDuMonde", "Quitter", nullptr));
+        AfficherCarte->setText(QCoreApplication::translate("ExplorationDuMonde", "Afficher un carte", nullptr));
+        PlusCourtChemin->setText(QCoreApplication::translate("ExplorationDuMonde", "Determiner le plus court chemin", nullptr));
+        textEdit->setPlaceholderText(QCoreApplication::translate("ExplorationDuMonde", "Entrez le nom du fichier contenant la carte", nullptr));
+        paysDepart->setPlaceholderText(QCoreApplication::translate("ExplorationDuMonde", "Entrez le pays de depart", nullptr));
+        DeterminerFrontieres->setText(QCoreApplication::translate("ExplorationDuMonde", "Determiner les frontieres", nullptr));
+        LireCarte->setText(QCoreApplication::translate("ExplorationDuMonde", "Lire une carte", nullptr));
+        paysArrivee->setPlaceholderText(QCoreApplication::translate("ExplorationDuMonde", "Entrez le pays d'arrivee", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    //class Form: public Ui_Form {};
+    class ExplorationDuMonde: public Ui_ExplorationDuMonde {};
 } // namespace Ui
 
 QT_END_NAMESPACE

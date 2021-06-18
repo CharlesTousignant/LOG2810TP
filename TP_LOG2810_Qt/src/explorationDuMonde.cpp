@@ -10,7 +10,7 @@ using namespace std;
 ExplorationDuMonde::ExplorationDuMonde(): carteLue_(false), frontieresDeterminees_(false)
 {	
 	carte_ = make_shared<Carte>();
-	uiExploration_ = make_unique<Ui_Form_Exploration>();
+	uiExploration_ = make_unique<Ui_ExplorationDuMonde>();
 	extractionDialog_ = make_unique<ExtractionGraphe>();
 
 	uiExploration_->setupUi(this);

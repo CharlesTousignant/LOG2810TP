@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'choixModesJeux.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.1
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -20,7 +20,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Dialog
+class Ui_DialogChoixModesJeux
 {
 public:
     QGridLayout *gridLayout;
@@ -33,14 +33,14 @@ public:
     QPushButton *buttonSuggestion;
     QButtonGroup *buttonGroup;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QDialog *DialogChoixModesJeux)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QString::fromUtf8("Dialog"));
-        Dialog->resize(637, 300);
-        gridLayout = new QGridLayout(Dialog);
+        if (DialogChoixModesJeux->objectName().isEmpty())
+            DialogChoixModesJeux->setObjectName(QString::fromUtf8("DialogChoixModesJeux"));
+        DialogChoixModesJeux->resize(637, 300);
+        gridLayout = new QGridLayout(DialogChoixModesJeux);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        label = new QLabel(Dialog);
+        label = new QLabel(DialogChoixModesJeux);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMaximumSize(QSize(16777215, 30));
         QFont font;
@@ -50,38 +50,38 @@ public:
 
         gridLayout->addWidget(label, 1, 0, 1, 2);
 
-        buttonCreerAutomate = new QPushButton(Dialog);
+        buttonCreerAutomate = new QPushButton(DialogChoixModesJeux);
         buttonCreerAutomate->setObjectName(QString::fromUtf8("buttonCreerAutomate"));
 
         gridLayout->addWidget(buttonCreerAutomate, 0, 1, 1, 1);
 
-        lineEdit = new QLineEdit(Dialog);
+        lineEdit = new QLineEdit(DialogChoixModesJeux);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setAutoFillBackground(false);
 
         gridLayout->addWidget(lineEdit, 0, 0, 1, 1);
 
-        buttonExit = new QPushButton(Dialog);
-        buttonGroup = new QButtonGroup(Dialog);
+        buttonExit = new QPushButton(DialogChoixModesJeux);
+        buttonGroup = new QButtonGroup(DialogChoixModesJeux);
         buttonGroup->setObjectName(QString::fromUtf8("buttonGroup"));
         buttonGroup->addButton(buttonExit);
         buttonExit->setObjectName(QString::fromUtf8("buttonExit"));
 
         gridLayout->addWidget(buttonExit, 3, 1, 1, 1);
 
-        buttonCorrection = new QPushButton(Dialog);
+        buttonCorrection = new QPushButton(DialogChoixModesJeux);
         buttonGroup->addButton(buttonCorrection);
         buttonCorrection->setObjectName(QString::fromUtf8("buttonCorrection"));
 
         gridLayout->addWidget(buttonCorrection, 2, 1, 1, 1);
 
-        buttonSuggestCorrect = new QPushButton(Dialog);
+        buttonSuggestCorrect = new QPushButton(DialogChoixModesJeux);
         buttonGroup->addButton(buttonSuggestCorrect);
         buttonSuggestCorrect->setObjectName(QString::fromUtf8("buttonSuggestCorrect"));
 
         gridLayout->addWidget(buttonSuggestCorrect, 2, 2, 1, 1);
 
-        buttonSuggestion = new QPushButton(Dialog);
+        buttonSuggestion = new QPushButton(DialogChoixModesJeux);
         buttonGroup->addButton(buttonSuggestion);
         buttonSuggestion->setObjectName(QString::fromUtf8("buttonSuggestion"));
         QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -93,27 +93,27 @@ public:
         gridLayout->addWidget(buttonSuggestion, 2, 0, 1, 1);
 
 
-        retranslateUi(Dialog);
+        retranslateUi(DialogChoixModesJeux);
 
-        QMetaObject::connectSlotsByName(Dialog);
+        QMetaObject::connectSlotsByName(DialogChoixModesJeux);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QDialog *DialogChoixModesJeux)
     {
-        Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("Dialog", "Choisissez le mode voulu.", nullptr));
-        buttonCreerAutomate->setText(QCoreApplication::translate("Dialog", "Creer automate", nullptr));
-        lineEdit->setPlaceholderText(QCoreApplication::translate("Dialog", "Entrez le nom du lexique a utiliser. (Lexique1.txt par defautl)", nullptr));
-        buttonExit->setText(QCoreApplication::translate("Dialog", "Exit", nullptr));
-        buttonCorrection->setText(QCoreApplication::translate("Dialog", "Correction", nullptr));
-        buttonSuggestCorrect->setText(QCoreApplication::translate("Dialog", "Suggestion + Correction", nullptr));
-        buttonSuggestion->setText(QCoreApplication::translate("Dialog", "Suggestion", nullptr));
+        DialogChoixModesJeux->setWindowTitle(QCoreApplication::translate("DialogChoixModesJeux", "Dialog", nullptr));
+        label->setText(QCoreApplication::translate("DialogChoixModesJeux", "Choisissez le mode voulu.", nullptr));
+        buttonCreerAutomate->setText(QCoreApplication::translate("DialogChoixModesJeux", "Creer automate", nullptr));
+        lineEdit->setPlaceholderText(QCoreApplication::translate("DialogChoixModesJeux", "Entrez le nom du lexique a utiliser. (Lexique1.txt par defautl)", nullptr));
+        buttonExit->setText(QCoreApplication::translate("DialogChoixModesJeux", "Exit", nullptr));
+        buttonCorrection->setText(QCoreApplication::translate("DialogChoixModesJeux", "Correction", nullptr));
+        buttonSuggestCorrect->setText(QCoreApplication::translate("DialogChoixModesJeux", "Suggestion + Correction", nullptr));
+        buttonSuggestion->setText(QCoreApplication::translate("DialogChoixModesJeux", "Suggestion", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Dialog: public Ui_Dialog {};
+    class DialogChoixModesJeux: public Ui_DialogChoixModesJeux {};
 } // namespace Ui
 
 QT_END_NAMESPACE

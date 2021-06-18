@@ -55,12 +55,6 @@
     <ClCompile Include="src\sommet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="x64\Debug\rcc\qrc_TP_LOG2810_Qt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="x64\Release\rcc\qrc_TP_LOG2810_Qt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ChoixModesJeux.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -68,12 +62,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ExtractionGraphe.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="x64\Debug\moc\moc_ChoixApplication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="x64\Debug\moc\moc_ExtractionGraphe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,7 +90,7 @@
     <ClInclude Include="x64\Debug\uic\ui_extractionGraphe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="x64\Release\uic\ui_JeuxInstructif.h">
+    <ClInclude Include="x64\Debug\uic\ui_JeuxInstructif.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

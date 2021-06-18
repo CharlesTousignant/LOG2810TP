@@ -1,5 +1,5 @@
 #pragma once
-#include "ui_choixApplication.h"
+#include "../x64/Debug/uic/ui_choixApplication.h"
 #include "JeuxInstructif.h"
 #include "ChoixModesJeux.h"
 #include "explorationDuMonde.h"
@@ -25,7 +25,7 @@ public:
 
     void showApps();
 
-    std::unique_ptr<Ui_choixApplication> uiDialog_;
+    std::unique_ptr<Ui_DialogChoixApplication> uiDialog_;
     std::unique_ptr<JeuxInstructif> jeuxInstructif_;
     std::unique_ptr<ExplorationDuMonde> exploration_;
 

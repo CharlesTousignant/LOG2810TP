@@ -4,7 +4,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ChoixModesJeux.h"
 #include "explorationDuMonde.h"
-#include "ui_jeuxInstructif.h"
+#include "../x64/Debug/uic/ui_jeuxInstructif.h"
 
 #include <vector>
 
@@ -19,7 +19,7 @@ public:
     JeuxInstructif(QWidget* parent = Q_NULLPTR);
     void start();
 private:
-    Ui::JeuxInstructif_Class ui;
+    Ui::JeuxInstructif ui;
 
     void closeEvent(QCloseEvent* event) override;
 

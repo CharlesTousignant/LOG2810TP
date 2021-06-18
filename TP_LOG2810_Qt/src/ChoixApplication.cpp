@@ -1,10 +1,10 @@
-#include "ui_choixApplication.h"
+//#include "ui_choixApplication.h"
 #include "ChoixApplication.h"
 
 using namespace std;
 
 ChoixApplication::ChoixApplication() {
-    uiDialog_ = make_unique<Ui_choixApplication>();
+    uiDialog_ = make_unique<Ui_DialogChoixApplication>();
     jeuxInstructif_ = make_unique<JeuxInstructif>();
     exploration_ = make_unique<ExplorationDuMonde>();
 
