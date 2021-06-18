@@ -1,19 +1,26 @@
 #pragma once
 #include "ui_choix.h"
 #include <qbuttongroup.h>
+#include <memory>
 
 enum possibleGameState {
 	suggest,
 	correct,
-	suggestCorrect
+	suggestCorrect,
+	shouldExit
 };
 
-class MyDialog : QDialog, Ui_Dialog {
+class MyDialog :public QDialog, public Ui_Dialog {
 	Q_OBJECT
 public:
 	MyDialog();
 	
-	void buttonClicked(QPushButton* buttonGroup);
+	void buttonClicked();
 	void show();
 
+signals:
+	void choiceSelected(possibleGameState selectedState);
+
+private:
+	std::unique_ptr<Ui_Dialog> uiDialog;
 };

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'TP_LOG2810_Qt.ui'
+** Form generated from reading UI file 'JeuxInstructif.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_TP_LOG2810_QT_H
-#define UI_TP_LOG2810_QT_H
+#ifndef UI_JEUXINSTRUCTIF_H
+#define UI_JEUXINSTRUCTIF_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -123,4 +123,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_TP_LOG2810_QT_H
+#endif // UI_JEUXINSTRUCTIF_H

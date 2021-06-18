@@ -2,8 +2,7 @@
 
 
 #include "TP_LOG2810_Qt.h"
-#include "ui_choix.h"
-
+#include "ui_choixModesJeux.h"
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -13,7 +12,7 @@ using namespace std;
 vector<shared_ptr<string>> creerLexique(const string& nomFichier)
 {
     ifstream fichier;
-    fichier.open(".\\data_partie1\\" + nomFichier);
+    fichier.open(".\\data_partie2\\" + nomFichier);
     string mot;
     vector<shared_ptr<string>> lexique = vector<shared_ptr<string>>();
 
@@ -30,30 +29,63 @@ vector<shared_ptr<string>> creerLexique(const string& nomFichier)
 }
 
 
-TP_LOG2810_Qt::TP_LOG2810_Qt(QWidget *parent)
+TP_LOG2810_Qt::TP_LOG2810_Qt(std::string fichierLexique, QWidget* parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    // ui.textEdit->installEventFilter(this);
-    vector<shared_ptr<string>> lexique = creerLexique("lexique6.txt");
+
+    vector<shared_ptr<string>> lexique = creerLexique(fichierLexique);
     automateLexique = Automate(lexique);
-    showChoices();
+    
     connect(ui.textEdit, &QTextEdit::textChanged, this, &TP_LOG2810_Qt::keyPressed);
     connect(ui.pushButton, &QPushButton::pressed, this, & TP_LOG2810_Qt::showChoices);
 
-    MyDialog* dialog_ = new MyDialog();
+    // on creer et initialise le dialog pour choisir l'application
+    choixApp_ = new ChoixApplication();
+    dialog_ = new MyDialog();
 
+    connect(choixApp_, &ChoixApplication::choiceSelected, this, &TP_LOG2810_Qt::startNewApp);
+    choixApp_->show();
+    // on creer et initialise le dialog pour changer d'etat dans le jeuInstructif
+    
+    connect(dialog_, &MyDialog::choiceSelected, this, &TP_LOG2810_Qt::setNewState);
+}
+
+void TP_LOG2810_Qt::startNewApp(selectedApplication selectedApp) {
+    switch (selectedApp)
+    {
+    case explorationDuMonde:
+        // start exploration du monde
+        this->close();
+        break;
+    case jeuInstructif:
+        showChoices();
+        break;
+    default:
+        break;
+    }
+    choixApp_->accept();
 }
 
 void TP_LOG2810_Qt::showChoices() const {
     dialog_->show();
 }
 
-void TP_LOG2810_Qt::keyPressed() {
-    string text = ui.textEdit->toPlainText().toStdString();
-    size_t newTextSize = text.length();
+void TP_LOG2810_Qt::setNewState(possibleGameState state) {
+    if (state == shouldExit) {
+        choixApp_->show();
+    }
+    gameState_ = state;
+    ui.textEdit->clear();
+    ui.listWidget->clear();
+}
 
+void TP_LOG2810_Qt::keyPressed() {
+     string text = ui.textEdit->toPlainText().toStdString();
+     size_t newTextSize = text.length();
+     
      string currentWord;
+
 
      int posWordStart = text.find_last_of(' ');
 
@@ -63,76 +95,51 @@ void TP_LOG2810_Qt::keyPressed() {
      }
 
      // If we just entered a space
-     else if (posWordStart == newTextSize - 1) {
-         // check if we should give corrction
+     if (posWordStart == newTextSize - 1 ) {
+         if (gameState_ == correct || gameState_ == suggestCorrect) {
+             // find the position of the last space before we find a letter
+             while (posWordStart >= 0 && text[posWordStart] == ' ') { posWordStart--; };
 
-         // find the position of the last space before we find a letter
-         while (posWordStart >= 0 && text[posWordStart] == ' ') { posWordStart--; };
+             int startIndex = 0;
+             // If there is only spaces in the text
+             if (posWordStart == -1) {
+                 currentWord = "";
+             }
 
-         int startIndex = 0;
-         // If there is only spaces in the text
-         if (posWordStart == -1) {
-             currentWord = "";
+             // If there is only one character
+             else if (posWordStart == 0) {
+                 currentWord = text[posWordStart];
+             }
+
+             // find the last written word
+             else {
+                 // le mot commence 1 apres le dernier espace
+                 startIndex = text.find_last_of(' ', posWordStart) + 1;
+                 currentWord = text.substr(startIndex, (posWordStart - startIndex + 1));
+             }
+             string correctionWord = automateLexique.corrigerMot(currentWord);
+
+             // If there is no correction found, leave it as is
+             if (correctionWord.length() == 0) {
+                 correctionWord = currentWord;
+             }
+             string newText = text.substr(0, startIndex) + correctionWord + " ";
+             ui.textEdit->blockSignals(true);
+             ui.textEdit->setText(QString::fromStdString(newText));
+
+             // put back cursor where it was
+             auto cursor = &ui.textEdit->textCursor();
+             cursor->movePosition(QTextCursor::MoveOperation::End);
+             cursor->NoMove(true);
+             ui.textEdit->blockSignals(false);
          }
-
-         // If there is only one character
-         else if (posWordStart == 0) {
-             currentWord = text[posWordStart];
-         }
-
-         // find the last written word
-         else {
-             // le mot commence 1 apres le dernier espace
-             startIndex = text.find_last_of(' ', posWordStart) + 1;
-             currentWord = text.substr(startIndex, posWordStart + 1);
-         }
-         string correctionWord = automateLexique.corrigerMot(currentWord);
-
-         // If there is no correction found, leave it as is
-         if (correctionWord.length() == 0) {
-             correctionWord = currentWord;
-         }
-
-         ui.textEdit->setText(QString::fromStdString(text.substr(0, startIndex) + correctionWord));
-
      }
 
-     else {
+     else if (gameState_ == suggest || gameState_ == suggestCorrect) {
          currentWord = text.substr(posWordStart + 1);
+         vector<string> suggestionsMots = automateLexique.suggererMots(currentWord);
+         addSuggestions(suggestionsMots);
      }
-
-
-
-    //if (newTextSize == 0) {
-    //    currentWord = "";
-    //    currTextSize = 0;
-    //}
-    //    
-    //else {
-    //    char keyPressed = text.back();
-
-    //    //char keyPressed = event->KeyPress;
-
-    //    // Si il y a moins de char dans le texte, retirer un char du mot courant
-    //    if (newTextSize < currTextSize) {
-    //        if (!currentWord.empty())
-    //            currentWord.erase(currentWord.length() - (currTextSize - newTextSize));
-    //    }
-
-    //    else if (keyPressed == ' ') {
-    //        currentWord = "";
-    //    }
-
-    //    else {
-    //        currentWord += keyPressed;
-
-    //    }
-    //}
-
-    vector<string> suggestionsMots = automateLexique.suggererMots(currentWord);
-    addSuggestions(suggestionsMots);
-
-    currTextSize = newTextSize;
 }
 
 void TP_LOG2810_Qt::addSuggestions(vector<string> suggestionsMots) {

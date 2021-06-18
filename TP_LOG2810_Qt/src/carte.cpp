@@ -22,7 +22,7 @@ Carte::Carte(const Carte& carte)
 // cr�er le graphe � partir du fichier de donn�es
 bool Carte::creerGraphe(const std::string& nomFichier) {
 	std::ifstream fichier;
-	fichier.open(".\\data_partie2\\" + nomFichier);
+	fichier.open(".\\data_partie1\\" + nomFichier);
 	string line;
 
 	if (fichier) {

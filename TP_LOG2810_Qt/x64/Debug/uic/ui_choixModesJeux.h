@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'choix.ui'
+** Form generated from reading UI file 'choixModesJeux.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.1
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_CHOIX_H
-#define UI_CHOIX_H
+#ifndef UI_CHOIXMODESJEUX_H
+#define UI_CHOIXMODESJEUX_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -84,4 +84,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_CHOIX_H
+#endif // UI_CHOIXMODESJEUX_H

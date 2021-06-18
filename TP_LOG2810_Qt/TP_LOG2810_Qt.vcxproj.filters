@@ -26,7 +26,7 @@
     <QtRcc Include="TP_LOG2810_Qt.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="TP_LOG2810_Qt.ui">
+    <QtUic Include="JeuxInstructif.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtMoc Include="src\TP_LOG2810_Qt.h">
@@ -73,6 +73,12 @@
     <ClCompile Include="src\MyDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\SelectionMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChoixApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\automate.h">
@@ -93,34 +99,58 @@
     <ClInclude Include="src\sommet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="x64\Debug\uic\ui_TP_LOG2810_Qt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="x64\Release\uic\ui_TP_LOG2810_Qt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="x64\Debug\uic\ui_choix.h">
+    <ClInclude Include="src\ui_choix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="x64\Release\uic\ui_choix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SelectionMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui_choixModesJeux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui_Exploration du monde.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui_extractionGraphe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui_JeuxInstructif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui_TP_LOG2810_Qt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data_partie1\lexique1.txt" />
-    <Text Include="data_partie1\lexique2.txt" />
-    <Text Include="data_partie1\lexique3.txt" />
-    <Text Include="data_partie1\lexique4.txt" />
-    <Text Include="data_partie1\lexique5.txt" />
-    <Text Include="data_partie1\lexique6.txt" />
+    <Text Include="data_partie2\lexique1.txt" />
+    <Text Include="data_partie2\lexique2.txt" />
+    <Text Include="data_partie2\lexique3.txt" />
+    <Text Include="data_partie2\lexique4.txt" />
+    <Text Include="data_partie2\lexique5.txt" />
+    <Text Include="data_partie2\lexique6.txt" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="choix.ui">
+    <QtUic Include="choixModesJeux.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Exploration du monde.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="extractionGraphe.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="choixApplication.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="src\MyDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ChoixApplication.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

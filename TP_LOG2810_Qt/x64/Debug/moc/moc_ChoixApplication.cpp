@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'MyDialog.h'
+** Meta object code from reading C++ file 'ChoixApplication.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.0)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../../src/MyDialog.h"
+#include "../../../src/ChoixApplication.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'MyDialog.h' doesn't include <QObject>."
+#error "The header file 'ChoixApplication.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.15.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,30 +21,30 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_MyDialog_t {
+struct qt_meta_stringdata_ChoixApplication_t {
     QByteArrayData data[5];
-    char stringdata0[57];
+    char stringdata0[65];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MyDialog_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_ChoixApplication_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_MyDialog_t qt_meta_stringdata_MyDialog = {
+static const qt_meta_stringdata_ChoixApplication_t qt_meta_stringdata_ChoixApplication = {
     {
-QT_MOC_LITERAL(0, 0, 8), // "MyDialog"
-QT_MOC_LITERAL(1, 9, 14), // "choiceSelected"
-QT_MOC_LITERAL(2, 24, 0), // ""
-QT_MOC_LITERAL(3, 25, 17), // "possibleGameState"
-QT_MOC_LITERAL(4, 43, 13) // "selectedState"
+QT_MOC_LITERAL(0, 0, 16), // "ChoixApplication"
+QT_MOC_LITERAL(1, 17, 14), // "choiceSelected"
+QT_MOC_LITERAL(2, 32, 0), // ""
+QT_MOC_LITERAL(3, 33, 19), // "selectedApplication"
+QT_MOC_LITERAL(4, 53, 11) // "selectedApp"
 
     },
-    "MyDialog\0choiceSelected\0\0possibleGameState\0"
-    "selectedState"
+    "ChoixApplication\0choiceSelected\0\0"
+    "selectedApplication\0selectedApp"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_MyDialog[] = {
+static const uint qt_meta_data_ChoixApplication[] = {
 
  // content:
        8,       // revision
@@ -66,20 +66,20 @@ static const uint qt_meta_data_MyDialog[] = {
        0        // eod
 };
 
-void MyDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ChoixApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<MyDialog *>(_o);
+        auto *_t = static_cast<ChoixApplication *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->choiceSelected((*reinterpret_cast< possibleGameState(*)>(_a[1]))); break;
+        case 0: _t->choiceSelected((*reinterpret_cast< selectedApplication(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (MyDialog::*)(possibleGameState );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MyDialog::choiceSelected)) {
+            using _t = void (ChoixApplication::*)(selectedApplication );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ChoixApplication::choiceSelected)) {
                 *result = 0;
                 return;
             }
@@ -87,32 +87,30 @@ void MyDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject MyDialog::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject ChoixApplication::staticMetaObject = { {
     QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_MyDialog.data,
-    qt_meta_data_MyDialog,
+    qt_meta_stringdata_ChoixApplication.data,
+    qt_meta_data_ChoixApplication,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *MyDialog::metaObject() const
+const QMetaObject *ChoixApplication::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *MyDialog::qt_metacast(const char *_clname)
+void *ChoixApplication::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_MyDialog.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_ChoixApplication.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "Ui_Dialog"))
-        return static_cast< Ui_Dialog*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int MyDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ChoixApplication::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -130,7 +128,7 @@ int MyDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MyDialog::choiceSelected(possibleGameState _t1)
+void ChoixApplication::choiceSelected(selectedApplication _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

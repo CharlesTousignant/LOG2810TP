@@ -3,6 +3,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "MyDialog.h"
+#include "ChoixApplication.h"
+
 #include "ui_TP_LOG2810_Qt.h"
 
 #include <vector>
@@ -15,7 +17,7 @@ class TP_LOG2810_Qt : public QMainWindow
     Q_OBJECT
 
 public:
-    TP_LOG2810_Qt(QWidget *parent = Q_NULLPTR);
+    TP_LOG2810_Qt(std::string fichierLexique = "lexique6.txt", QWidget* parent = Q_NULLPTR);
 
 private:
     Ui::TP_LOG2810_QtClass ui;
@@ -27,8 +29,12 @@ private:
 
     Automate automateLexique;
     std::string currentWord;
-    int currTextSize = 0;
 
     MyDialog* dialog_;
-    possibleGameState gameState;
+    ChoixApplication* choixApp_;
+    possibleGameState gameState_;
+
+public slots:
+    void setNewState(possibleGameState state);
+    void startNewApp(selectedApplication selectedApp);
 };
