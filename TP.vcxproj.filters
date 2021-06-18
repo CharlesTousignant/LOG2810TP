@@ -84,5 +84,6 @@
     <None Include="Qt\TP_LOG2810.pro.user">
       <Filter>QtFiles</Filter>
     </None>
+    <None Include="diagramme de classe\ClassDiagram.cd" />
   </ItemGroup>
 </Project>

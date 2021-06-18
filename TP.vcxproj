@@ -168,6 +168,7 @@
     <ClInclude Include="sommet.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="diagramme de classe\ClassDiagram.cd" />
     <None Include="Qt\mainwindow.ui" />
     <None Include="Qt\TP_LOG2810.pro" />
     <None Include="Qt\TP_LOG2810.pro.user" />
