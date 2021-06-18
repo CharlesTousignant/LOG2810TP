@@ -81,6 +81,10 @@ void JeuxInstructif::setNewState(possibleGameState state) {
     ui.listWidget->clear();
 }
 
+void JeuxInstructif::resetCursor() {
+    auto cursor = &ui.textEdit->textCursor();
+    cursor->movePosition(QTextCursor::MoveOperation::End);
+}
 void JeuxInstructif::keyPressed() {
      QString qString = ui.textEdit->toPlainText();
      bool lastEnteredPunctuation = false;
@@ -119,10 +123,8 @@ void JeuxInstructif::keyPressed() {
          qString.append(QString::fromStdString(correctionWord + ' '));
          ui.textEdit->blockSignals(true);
          ui.textEdit->setText(qString);
+         resetCursor();
 
-         // put back cursor where it was
-         auto cursor = &ui.textEdit->textCursor();
-         cursor->movePosition(QTextCursor::MoveOperation::End);
          ui.textEdit->blockSignals(false);
      }
      else if (gameState_ == suggest || gameState_ == suggestCorrect) {

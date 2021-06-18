@@ -28,7 +28,8 @@ private:
     void showChoices() const ;
     void keyPressed();
     void addSuggestions(std::vector<std::string> suggestionsMots);
-    //void eventFilter(QEvent event);
+    
+    void resetCursor();
 
 
     Automate automateLexique;
