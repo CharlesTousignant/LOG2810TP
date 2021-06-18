@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>5.15.1_msvc2019_64</QtInstall>
+    <QtInstall>5.15.0_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -89,15 +89,15 @@
     <ClCompile Include="src\ExtractionGraphe.cpp" />
     <ClCompile Include="src\ChoixApplication.cpp" />
     <ClCompile Include="src\SelectionMode.cpp" />
-    <ClCompile Include="src\MyDialog.cpp" />
-    <ClCompile Include="x64\Debug\moc\moc_TP_LOG2810_Qt.cpp" />
+    <ClCompile Include="src\ChoixModesJeux.cpp" />
+    <ClCompile Include="x64\Debug\moc\moc_ChoixApplication.cpp" />
+    <ClCompile Include="x64\Debug\moc\moc_ExtractionGraphe.cpp" />
     <ClCompile Include="x64\Debug\rcc\qrc_TP_LOG2810_Qt.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="x64\Release\moc\moc_TP_LOG2810_Qt.cpp" />
     <ClCompile Include="x64\Release\rcc\qrc_TP_LOG2810_Qt.cpp" />
     <QtRcc Include="TP_LOG2810_Qt.qrc" />
     <QtUic Include="choixApplication.ui" />
@@ -105,32 +105,29 @@
     <QtUic Include="Exploration du monde.ui" />
     <QtUic Include="extractionGraphe.ui" />
     <QtUic Include="JeuxInstructif.ui" />
-    <QtMoc Include="src\TP_LOG2810_Qt.h" />
+    <QtMoc Include="src\JeuxInstructif.h" />
     <ClCompile Include="src\automate.cpp" />
     <ClCompile Include="src\carte.cpp" />
     <ClCompile Include="src\Etat.cpp" />
     <ClCompile Include="src\explorationDuMonde.cpp" />
-    <ClCompile Include="src\jeuInstructif.cpp" />
     <ClCompile Include="src\sommet.cpp" />
-    <ClCompile Include="src\TP_LOG2810_Qt.cpp" />
+    <ClCompile Include="src\JeuxInstructif.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="x64\Debug\uic\ui_choixApplication.h" />
-    <ClInclude Include="x64\Debug\uic\ui_choixModes.h" />
     <ClInclude Include="x64\Debug\uic\ui_choixModesJeux.h" />
     <ClInclude Include="x64\Debug\uic\ui_Exploration du monde.h" />
     <ClInclude Include="x64\Debug\uic\ui_extractionGraphe.h" />
-    <ClInclude Include="x64\Debug\uic\ui_JeuxInstructif.h" />
+    <ClInclude Include="x64\Release\uic\ui_JeuxInstructif.h" />
     <QtMoc Include="src\ExtractionGraphe.h" />
-    <QtMoc Include="src\MyDialog.h" />
+    <QtMoc Include="src\ChoixModesJeux.h" />
     <QtMoc Include="src\ChoixApplication.h" />
     <ClInclude Include="src\SelectionMode.h" />
     <ClInclude Include="src\automate.h" />
     <ClInclude Include="src\carte.h" />
     <ClInclude Include="src\Etat.h" />
-    <ClInclude Include="src\explorationDuMonde.h" />
-    <ClInclude Include="src\jeuInstructif.h" />
+    <QtMoc Include="src\explorationDuMonde.h" />
     <ClInclude Include="src\sommet.h" />
   </ItemGroup>
   <ItemGroup>

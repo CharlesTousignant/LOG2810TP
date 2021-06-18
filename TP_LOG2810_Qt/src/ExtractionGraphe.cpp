@@ -23,3 +23,7 @@ void ExtractionGraphe::buttonClicked() {
 
     this->accept();
 }
+
+void ExtractionGraphe::closeEvent(QCloseEvent* event) {
+    // do nothing
+}

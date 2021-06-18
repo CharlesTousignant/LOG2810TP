@@ -2,8 +2,7 @@
 #include "automate.h"
 
 #include <QtWidgets/QMainWindow>
-#include "MyDialog.h"
-#include "ChoixApplication.h"
+#include "ChoixModesJeux.h"
 #include "explorationDuMonde.h"
 #include "ui_jeuxInstructif.h"
 
@@ -12,19 +11,22 @@
 
 
 
-class TP_LOG2810_Qt : public QMainWindow
+class JeuxInstructif : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    TP_LOG2810_Qt(QWidget* parent = Q_NULLPTR);
-
+    JeuxInstructif(QWidget* parent = Q_NULLPTR);
+    void start();
 private:
-    Ui::TP_LOG2810_QtClass ui;
+    Ui::JeuxInstructif_Class ui;
+
+    void closeEvent(QCloseEvent* event) override;
 
     void creerAutomate(std::string nomFichier);
+
     void showChoices() const ;
-    void TP_LOG2810_Qt::keyPressed();
+    void keyPressed();
     void addSuggestions(std::vector<std::string> suggestionsMots);
     //void eventFilter(QEvent event);
 
@@ -32,12 +34,14 @@ private:
     Automate automateLexique;
     std::string currentWord;
 
-    std::unique_ptr<MyDialog> dialog_;
-    std::unique_ptr<ChoixApplication> choixApp_;
+    std::unique_ptr<ChoixModesJeux> dialog_;
     std::unique_ptr<ExplorationDuMonde> exploration_;
     possibleGameState gameState_;
 
 public slots:
     void setNewState(possibleGameState state);
-    void startNewApp(selectedApplication selectedApp);
+    
+
+signals:
+    void windowClosed();
 };

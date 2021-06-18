@@ -11,6 +11,8 @@ public:
 	~ExtractionGraphe() = default;
 
 	void buttonClicked();
+
+	void closeEvent(QCloseEvent* event) override;
 signals:
 	void choixCouleur(char couleur);
 

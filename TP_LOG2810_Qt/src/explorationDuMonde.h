@@ -9,10 +9,13 @@
 #include "carte.h"
 
 class ExplorationDuMonde : public QWidget{
+	Q_OBJECT
 public:
 	ExplorationDuMonde();
 	~ExplorationDuMonde() = default;
 	void lancer();
+
+	void closeEvent(QCloseEvent* event) override;
 
 private:
 	char choisirOptionMenu();
@@ -21,6 +24,8 @@ private:
 	void determinerFrontieres();
 	void determinerPlusCourtChemin();
 	void reinitialiserJeu();
+
+	void setCouleurAEviter(char couleurAEviter);
 
 	bool carteLue_;
 	bool frontieresDeterminees_;
@@ -32,6 +37,9 @@ private:
 
 	std::unique_ptr<Ui_Form_Exploration> uiExploration_;
 	std::unique_ptr<ExtractionGraphe> extractionDialog_;
+
+signals:
+	void windowClosed();
 };
 
 

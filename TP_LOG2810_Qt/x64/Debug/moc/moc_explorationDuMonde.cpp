@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'ExtractionGraphe.h'
+** Meta object code from reading C++ file 'explorationDuMonde.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.0)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../../src/ExtractionGraphe.h"
+#include "../../../src/explorationDuMonde.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'ExtractionGraphe.h' doesn't include <QObject>."
+#error "The header file 'explorationDuMonde.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.15.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,28 +21,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_ExtractionGraphe_t {
-    QByteArrayData data[4];
-    char stringdata0[39];
+struct qt_meta_stringdata_ExplorationDuMonde_t {
+    QByteArrayData data[3];
+    char stringdata0[33];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_ExtractionGraphe_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_ExplorationDuMonde_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_ExtractionGraphe_t qt_meta_stringdata_ExtractionGraphe = {
+static const qt_meta_stringdata_ExplorationDuMonde_t qt_meta_stringdata_ExplorationDuMonde = {
     {
-QT_MOC_LITERAL(0, 0, 16), // "ExtractionGraphe"
-QT_MOC_LITERAL(1, 17, 12), // "choixCouleur"
-QT_MOC_LITERAL(2, 30, 0), // ""
-QT_MOC_LITERAL(3, 31, 7) // "couleur"
+QT_MOC_LITERAL(0, 0, 18), // "ExplorationDuMonde"
+QT_MOC_LITERAL(1, 19, 12), // "windowClosed"
+QT_MOC_LITERAL(2, 32, 0) // ""
 
     },
-    "ExtractionGraphe\0choixCouleur\0\0couleur"
+    "ExplorationDuMonde\0windowClosed\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_ExtractionGraphe[] = {
+static const uint qt_meta_data_ExplorationDuMonde[] = {
 
  // content:
        8,       // revision
@@ -56,61 +55,62 @@ static const uint qt_meta_data_ExtractionGraphe[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x06 /* Public */,
+       1,    0,   19,    2, 0x06 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Char,    3,
+    QMetaType::Void,
 
        0        // eod
 };
 
-void ExtractionGraphe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ExplorationDuMonde::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<ExtractionGraphe *>(_o);
+        auto *_t = static_cast<ExplorationDuMonde *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->choixCouleur((*reinterpret_cast< char(*)>(_a[1]))); break;
+        case 0: _t->windowClosed(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (ExtractionGraphe::*)(char );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ExtractionGraphe::choixCouleur)) {
+            using _t = void (ExplorationDuMonde::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ExplorationDuMonde::windowClosed)) {
                 *result = 0;
                 return;
             }
         }
     }
+    Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject ExtractionGraphe::staticMetaObject = { {
-    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_ExtractionGraphe.data,
-    qt_meta_data_ExtractionGraphe,
+QT_INIT_METAOBJECT const QMetaObject ExplorationDuMonde::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_ExplorationDuMonde.data,
+    qt_meta_data_ExplorationDuMonde,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *ExtractionGraphe::metaObject() const
+const QMetaObject *ExplorationDuMonde::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *ExtractionGraphe::qt_metacast(const char *_clname)
+void *ExplorationDuMonde::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_ExtractionGraphe.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_ExplorationDuMonde.stringdata0))
         return static_cast<void*>(this);
-    return QDialog::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
-int ExtractionGraphe::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ExplorationDuMonde::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QDialog::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -126,10 +126,9 @@ int ExtractionGraphe::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void ExtractionGraphe::choixCouleur(char _t1)
+void ExplorationDuMonde::windowClosed()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

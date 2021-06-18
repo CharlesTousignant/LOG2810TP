@@ -4,22 +4,47 @@
 using namespace std;
 
 ChoixApplication::ChoixApplication() {
-    uiDialog = make_unique<Ui_choixApplication>();
-    uiDialog->setupUi(this);
-    connect(uiDialog->boutonExploration, &QPushButton::clicked, this, &ChoixApplication::buttonClicked);
-    connect(uiDialog->boutonJeuInstructif, &QPushButton::clicked, this, &ChoixApplication::buttonClicked);
+    uiDialog_ = make_unique<Ui_choixApplication>();
+    jeuxInstructif_ = make_unique<JeuxInstructif>();
+    exploration_ = make_unique<ExplorationDuMonde>();
+
+    uiDialog_->setupUi(this);
+    connect(uiDialog_->boutonExploration, &QPushButton::clicked, this, &ChoixApplication::buttonClicked);
+    connect(uiDialog_->boutonJeuInstructif, &QPushButton::clicked, this, &ChoixApplication::buttonClicked);
+    //connect(this, &ChoixApplication::choiceSelected, this, &ChoixApplication::startNewApp);
+
+    connect(jeuxInstructif_.get(), &JeuxInstructif::windowClosed, this, &ChoixApplication::showApps);
+    connect(exploration_.get(), &ExplorationDuMonde::windowClosed, this, &ChoixApplication::showApps);
 }
 
-void ChoixApplication::show() {
-    this->exec();
+void ChoixApplication::showApps() {
+    jeuxInstructif_->stackUnder(this);
+    exploration_->hide();
+    this->show();
+}
+
+void ChoixApplication::startNewApp(selectedApplication selectedApp) {
+    switch (selectedApp)
+    {
+    case explorationDuMonde:
+        // start exploration du monde
+        exploration_->show();
+        break;
+    case jeuInstructif:
+        jeuxInstructif_->start();
+        break;
+    default:
+        break;
+    }
+    //this->hide();
 }
 
 void ChoixApplication::buttonClicked() {
     string buttonPressedName = QObject::sender()->objectName().toStdString();
     if (buttonPressedName == "boutonExploration") {
-        emit(choiceSelected(explorationDuMonde));
+        startNewApp(explorationDuMonde);
     }
     if (buttonPressedName == "boutonJeuInstructif") {
-        emit(choiceSelected(jeuInstructif));
+        startNewApp(jeuInstructif);
     }
 }

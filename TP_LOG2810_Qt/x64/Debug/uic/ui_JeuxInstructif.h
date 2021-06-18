@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'JeuxInstructif.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.1
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -24,7 +24,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_TP_LOG2810_QtClass
+class Ui_JeuxInstructif_Class
 {
 public:
     QWidget *centralWidget;
@@ -119,7 +119,7 @@ public:
 };
 
 namespace Ui {
-    class TP_LOG2810_QtClass: public Ui_TP_LOG2810_QtClass {};
+    class JeuxInstructif_Class : public Ui_JeuxInstructif_Class {};
 } // namespace Ui
 
 QT_END_NAMESPACE

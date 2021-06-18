@@ -19,13 +19,14 @@ ExplorationDuMonde::ExplorationDuMonde(): carteLue_(false), frontieresDeterminee
 	connect(uiExploration_->DeterminerFrontieres, &QPushButton::clicked, this, &ExplorationDuMonde::determinerFrontieres);
 	connect(uiExploration_->PlusCourtChemin, &QPushButton::clicked, this, &ExplorationDuMonde::determinerPlusCourtChemin);
 
-	//connect(extractionDialog_.get(), &ExtractionGraphe::choixCouleur, this, ExplorationDuMonde:)
+	connect(uiExploration_->Quitter, &QPushButton::clicked, this, &ExplorationDuMonde::close);
+
+	connect(extractionDialog_.get(), &ExtractionGraphe::choixCouleur, this, &ExplorationDuMonde::setCouleurAEviter);
 };
 
 
 void ExplorationDuMonde::lireCarte() {
 	string nomFichier = uiExploration_->textEdit->toPlainText().toStdString();
-
 	if (carteLue_) {
 		reinitialiserJeu();
 	}
@@ -65,6 +66,13 @@ void ExplorationDuMonde::determinerFrontieres() {
 	}
 }
 
+void ExplorationDuMonde::setCouleurAEviter(char couleurAEviter) {
+	couleurAEviter_ = couleurAEviter;
+}
+
+void ExplorationDuMonde::closeEvent(QCloseEvent* event) {
+	emit(windowClosed());
+}
 
 void ExplorationDuMonde::determinerPlusCourtChemin(){
 	if (!carteLue_) {
@@ -78,22 +86,23 @@ void ExplorationDuMonde::determinerPlusCourtChemin(){
 	else {
 		string paysDestination = uiExploration_->paysDepart->toPlainText().toStdString();
 		string paysOrigine = uiExploration_->paysArrivee->toPlainText().toStdString();
-		char couleurARetirer;
+		couleurAEviter_ = 'n';
 
 		string isRetirerCouleur;
 
 		// Afficher Extraction graphe dialog
 		stringstream os;
 		string line;
-		if(isRetirerCouleur == "oui") {
-			carte_->extractionGraphe(couleurARetirer).plusCourtChemin(paysOrigine, paysDestination, os);
-		}
-		else {
-			
+		extractionDialog_->exec();
+		if (couleurAEviter_ == 'n') {
 			carte_->plusCourtChemin(paysOrigine, paysDestination, os);
-			while (getline(os, line)) {
-				uiExploration_->textBrowser->append(QString::fromStdString(line));
-			}
+		}
+
+		else {
+			carte_->extractionGraphe(couleurAEviter_).plusCourtChemin(paysOrigine, paysDestination, os);
+		}
+		while (getline(os, line)) {
+			uiExploration_->textBrowser->append(QString::fromStdString(line));
 		}
 	}
 }
